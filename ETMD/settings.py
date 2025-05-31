@@ -78,7 +78,7 @@ TEMPLATES = [
     },
 ]
 
-
+import dj_database_url
 WSGI_APPLICATION = "ETMD.wsgi.application"
 
 
@@ -86,14 +86,9 @@ WSGI_APPLICATION = "ETMD.wsgi.application"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Task_Manager',
-        'USER': 'postgres',
-        'PASSWORD': '220903',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
+    'default': dj_database_url.parse(
+        "postgresql://postgres:TUXEkErhhCZeGhdHbDizScNrXALdnCxH@gondola.proxy.rlwy.net:15708/railway"
+    )
 }
 
 MEDIA_URL = '/media/'
