@@ -78,18 +78,24 @@ TEMPLATES = [
     },
 ]
 
-import dj_database_url
+
 WSGI_APPLICATION = "ETMD.wsgi.application"
-from decouple import config
+
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config(default=config('DATABASE_URL'))
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'Task_Manager',
+        'USER': 'postgres',
+        'PASSWORD': '220903',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
 }
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
