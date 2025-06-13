@@ -17,8 +17,9 @@ RUN pip install --upgrade pip && \
     pip install -r requirements.txt
 
 # Chạy migrate và collectstatic trong lúc build
-RUN python manage.py migrate && \
-    python manage.py collectstatic --noinput
+RUN python manage.py migrate
+RUN python manage.py collectstatic --noinput
+
 
 # Mở cổng 8000 cho container
 EXPOSE 8000
