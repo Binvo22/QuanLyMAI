@@ -1,23 +1,27 @@
-# Use the official Python image as the base
-FROM python:3.13.2
+# Dùng Python chính thức
+FROM python:3.13.9
 
-# Set the working directory inside the container
+# Làm việc trong thư mục /app
 WORKDIR /app
 
-# Copy all files into the container
+# Copy toàn bộ code vào container
 COPY . /app/
 
-# Install system dependencies
+# Cài các thư viện hệ thống cần thiết
 RUN apt-get update && apt-get install -y \
     libpq-dev \
     && rm -rf /var/lib/apt/lists/*
 
-# Install Python dependencies
+# Cài các thư viện Python
 RUN pip install --upgrade pip && \
     pip install -r requirements.txt
 
-# Expose the Django default port
+# Chạy migrate và collectstatic trong lúc build
+RUN python manage.py migrate && \
+    python manage.py collectstatic --noinput
+
+# Mở cổng 8000 cho container
 EXPOSE 8000
 
-# Command to start Django server
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+# Chạy ứng dụng Django bằng Gunicorn (chuẩn production)
+CMD ["gunicorn", "ETMD.wsgi:application", "--bind", "0.0.0.0:8000"]
