@@ -1,0 +1,78 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: rgb(55, 157, 148);
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #000000;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.task-card {
+    border: 1px solid #ddd;
+    border-left: 5px solid  rgb(55, 157, 148);
+    background-color: #fafafa;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.task-card:hover {
+    background-color: #f0f0f0;
+}
+
+.task-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.task-deadline {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.task-progress {
+    font-size: 16px;
+    font-weight: 500;
+    color: rgb(55, 157, 148);
+}
+
+.complete-message {
+    text-align: center;
+    font-size: 18px;
+    color: #4caf50;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+.back-btn {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #fff;
+    background-color:  rgb(55, 157, 148);
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.back-btn:hover {
+    background-color:  rgb(55, 157, 148);
+}

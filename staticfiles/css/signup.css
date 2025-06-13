@@ -1,0 +1,176 @@
+    * {
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        transition: all 0.3s ease;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(135deg,  rgb(55, 157, 148) 0%, rgb(55, 157, 148) 100%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+
+    .container {
+        background-color: #fff;
+        padding: 40px 50px;
+        border-radius: 14px;
+        box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
+        width: 100%;
+        max-width: 480px;
+    }
+
+    h2 {
+        margin-bottom: 30px;
+        text-align: center;
+        color: #222;
+        font-weight: 700;
+        font-size: 28px;
+        letter-spacing: 1.2px;
+    }
+
+    form input[type="text"],
+    form input[type="email"],
+    form input[type="password"],
+    form input[type="date"],
+    form textarea {
+        width: 100%;
+        padding: 14px 18px;
+        margin-bottom: 20px;
+        border: 2px solid #ddd;
+        border-radius: 10px;
+        font-size: 16px;
+        color: #444;
+        background-color: #fafafa;
+        box-shadow: inset 0 1px 3px rgb(0 0 0 / 0.1);
+    }
+
+    form input[type="text"]:focus,
+    form input[type="email"]:focus,
+    form input[type="password"]:focus,
+    form input[type="date"]:focus,
+    form textarea:focus {
+        border-color: #6a82fb;
+        background-color: #fff;
+        outline: none;
+        box-shadow: 0 0 8px 0 #6a82fbaa;
+    }
+
+    textarea {
+        resize: vertical;
+        min-height: 100px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 8px;
+        color: #555;
+        font-weight: 600;
+        font-size: 15px;
+        user-select: none;
+    }
+
+    button[type="submit"] {
+        width: 100%;
+        background: linear-gradient(135deg,  rgb(55, 157, 148) 0%, rgb(55, 157, 148) 100%);
+        color: white;
+        border: none;
+        padding: 16px 0;
+        font-size: 18px;
+        font-weight: 700;
+        border-radius: 12px;
+        cursor: pointer;
+        box-shadow: 0 8px 15px rgba(252, 92, 125, 0.4);
+        letter-spacing: 1.1px;
+        transition: background 0.4s ease;
+    }
+
+    button[type="submit"]:hover {
+        background-color: rgb(33, 95, 90);
+    }
+
+    .error {
+        background-color: #ffe5e8;
+        color: #d93025;
+        padding: 14px 18px;
+        border-radius: 10px;
+        margin-bottom: 25px;
+        font-weight: 600;
+        border: 1.5px solid #f5c6cb;
+        text-align: center;
+        letter-spacing: 0.03em;
+    }
+
+    p {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 15px;
+        color: #555;
+    }
+
+    p a {
+        color:  rgb(55, 157, 148);
+        font-weight: 700;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    p a:hover {
+        color: #6a82fb;
+        text-decoration: underline;
+    }
+
+    @media (max-width: 520px) {
+        .container {
+            padding: 30px 25px;
+            margin: 10px;
+        }
+        h2 {
+            font-size: 24px;
+        }
+        form input[type="text"],
+        form input[type="email"],
+        form input[type="password"],
+        form input[type="date"],
+        form textarea,
+        button[type="submit"] {
+            font-size: 15px;
+            padding: 12px 15px;
+        }
+}
+    form input[type="file"] {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    font-size: 16px;
+    color: #444;
+    background-color: #fafafa;
+    box-shadow: inset 0 1px 3px rgb(0 0 0 / 0.1);
+    cursor: pointer;
+}
+
+form input[type="file"]:focus {
+    border-color: #6a82fb;
+    background-color: #fff;
+    outline: none;
+    box-shadow: 0 0 8px 0 #6a82fbaa;
+}
+
+.image-preview {
+    margin-top: -10px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.image-preview img {
+    max-width: 150px;
+    max-height: 150px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    object-fit: cover;
+}

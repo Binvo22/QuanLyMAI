@@ -1,0 +1,117 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body, html {
+  height: 100%;
+  background: rgb(55, 157, 148);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #333;
+}
+
+.container {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  width: 700px;
+  max-width: 600px;
+  display: flex;
+  overflow: hidden;
+}
+
+.form-container {
+  flex: 1;
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form-container h2 {
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #222;
+  text-align: center;
+}
+
+form input {
+  width: 100%;
+  padding: 14px 16px;
+  margin: 10px 0 20px 0;
+  border: 1.8px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+form input:focus {
+  border-color:  rgb(55, 157, 148);
+  outline: none;
+}
+
+form button {
+  width: 100%;
+  padding: 14px 20px;
+  background-color: rgb(55, 157, 148);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: rgb(40, 111, 105);
+}
+
+.overlay-container {
+  background: rgb(41, 117, 111);
+  color: white;
+  width: 200px;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.overlay-panel h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.overlay-panel p {
+  font-size: 1rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+footer {
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: #000000;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .container {
+    flex-direction: column;
+    width: 90%;
+  }
+  .overlay-container {
+    width: 100%;
+    border-radius: 0 0 12px 12px;
+    padding: 25px 15px;
+  }
+}
