@@ -1,5 +1,5 @@
-# Dùng Python chính thức
-FROM python:3.13.9
+# Dùng Python 3.12 ổn định (3.12.3 là bản mới nhất tính đến hiện tại)
+FROM python:3.12
 
 # Làm việc trong thư mục /app
 WORKDIR /app
