@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <title>Đăng ký nhân viên</title>
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+</head>
+<body>
+<div class="container">
+    <h2>Đăng ký nhân viên</h2>
+    {% if error_message %}
+    <div class="error">{{ error_message }}</div>
+    {% endif %}
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" name="name" placeholder="Họ và tên" required />
+        <input type="email" name="email" placeholder="Email" required />
+        <input type="password" name="password" placeholder="Mật khẩu" required />
+        <input type="text" name="department" placeholder="Phòng ban" required />
+        <input type="text" name="employee_id" placeholder="Mã nhân viên" required />
+        <input type="text" name="address" placeholder="Địa chỉ" required />
+        <input type="text" name="contact_number" placeholder="Số điện thoại" required />
+        <input type="text" name="destination" placeholder="Điểm đến" />
+        <label>Ngày sinh</label>
+        <input type="date" name="date_of_birth" required />
+        <label>Ngày vào làm</label>
+        <input type="date" name="date_of_joining" required />
+        <input type="text" name="designation" placeholder="Chức vụ" />
+        <textarea name="description" placeholder="Mô tả"></textarea>
+        <input type="file" name="picture" accept="image/*" />
+        <button type="submit">Đăng ký</button>
+    </form>
+    <p>Đã có tài khoản? <a href="{% url 'login' %}">Đăng nhập tại đây</a></p>
+</div>
+</body>
+</html>

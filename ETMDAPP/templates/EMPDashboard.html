@@ -1,37 +1,74 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bảng điều khiển Quản lý Công việc </title>
-    <link rel="stylesheet" href="/static/css/EMPDashboard.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bảng điều khiển Quản lý Công việc</title>
+    <link rel="stylesheet" href="/static/css/EMPDashboard.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <style>
         .box {
-            padding: 20px;
+            flex: 1 1 250px;
+            max-width: 250px;
+            padding: 30px;
             border-radius: 10px;
-            margin: 15px;
+            margin: 15px 10px;
             text-align: center;
-            color: #fff;
+            color: #000;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
         }
 
-        .pink { background: #e91e63; }
-        .yellow { background: #FFD700; color: #000; }
-        .green { background: #4caf50; }
-        .blue { background: #2196f3; }
+        .pink {
+            background-color: #F9D5E5;
+        }
+
+        .orange {
+            background-color: #FCE5C7;
+        }
+
+        .green {
+            background-color: #CFFFE5;
+        }
+
+        .blue {
+            background-color: #D6E8FF;
+        }
 
         .color-box {
             display: flex;
             justify-content: space-around;
-            flex-wrap: wrap;
+            flex-wrap: nowrap; 
+            gap: 15px;
+        }
+
+        .box p {
+            margin: 10px 0 5px;
+            font-size: 1.0rem;
+        }
+
+        .box h3 {
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: 700;
         }
 
         .dashboard h2 {
-            margin: 30px 0 10px;
+            margin: 30px 0 15px;
+            font-weight: 700;
+            font-size: 2.4rem;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         }
     </style>
 </head>
@@ -40,15 +77,15 @@
 <section>
     <div class="sidebar close">
         <div class="logo">
-            <img class="logo-name" src="/static/IMAGES/mono.jpg" style="margin:20px;height:40px;border-radius:20px;">
+            <img
+              class="logo-name"
+              src="/static/IMAGES/mono.jpg"
+              style="margin:20px; height:40px; border-radius:20px"
+            />
         </div>
 
         <ul class="nav-list">
             <li>
-                <a href="{% url 'EMPDashboard' %}">
-                    <i class="fab fa-microsoft"></i>
-                    <span class="link-name">Bảng điều khiển</span>
-                </a>
                 <ul class="sub-menu blank">
                     <li><a href="EMPAccount" class="link-name">Bảng điều khiển</a></li>
                 </ul>
@@ -62,25 +99,27 @@
                     <i class="fas fa-caret-down arrow"></i>
                 </div>
                 <ul class="sub-menu">
-                    <li><a href="#" class="link-name">Tên phòng ban</a></li>
-                    <li><a href="{% url "employee_dashboard" %}">Mô tả công việc</a></li>
-                    <li><a href="EMPTaskEndDate">Ngày kết thúc công việc</a></li>
+                    <li><a href="{% url 'employee_dashboard' %}">Tiến độ công việc</a></li>
+                    <li><a href="{% url 'completed_tasks' %}">Công việc hoàn thành</a></li>
+                    <li><a href="{% url 'incomplete_tasks' %}">Công việc chưa hoàn thành</a></li>
+                    <li><a href="{% url 'checkin' %}">Chấm công</a></li>
                 </ul>
             </li>
             <li>
-                <a href="EMPAccount">
+                <a href="employee_profile">
                     <i class="fa fa-gear"></i>
-                    <span class="link-name">Gửi câu hỏi</span>
+                    <span class="link-name">Cài đặt</span>
                 </a>
             </li>
             <li>
                 <div class="profile-details">
                     <div class="profile-content"></div>
                     <div class="name-job">
-                        <div class="name">{{ request.session.EmployeeUsername }}</div>
-                        <div class="job">{{ request.session.EmployeeEmail }}</div>
+                        <div class="name">{{ request.session.employee_name }}</div>
+                        <div class="job">{{ request.session.employee_email }}</div>
                     </div>
-                    <a href="{% url 'logout' %}"><i class="fas fa-right-to-bracket"></i></a>
+
+                    <a href="{% url 'logout' %}"><i class="fas fa-right-to-bracket logout-icon"></i></a>
                 </div>
             </li>
         </ul>
@@ -93,8 +132,8 @@
         </div>
     </div>
 
-    <!-- Bảng điều khiển người dùng -->
     <div class="dashboard">
+        
         <h2 class="heading">Bảng điều khiển</h2>
         <div class="color-box">
             <div class="box pink">
@@ -102,7 +141,7 @@
                 <p>Tổng công việc</p>
                 <h3>{{ total_tasks }}</h3>
             </div>
-            <div class="box yellow">
+            <div class="box orange">
                 <p><i class="fa fa-play-circle" aria-hidden="true"></i></p>
                 <p>Vừa bắt đầu</p>
                 <h3>{{ just_started_tasks }}</h3>
@@ -135,13 +174,6 @@
             arrowParent.classList.toggle("show");
         });
     }
-
-    const hamburger = document.getElementById('menu');
-    const navigation = document.getElementById('navigation');
-    hamburger?.addEventListener('click', function () {
-        navigation.classList.toggle('active')
-        console.log('clicked');
-    });
 </script>
 
 </body>

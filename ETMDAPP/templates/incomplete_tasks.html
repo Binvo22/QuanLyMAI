@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Công việc chưa hoàn thành</title>
+    <link rel="stylesheet" href="{% static 'css/incomplete_tasks.css' %}">
+</head>
+<body>
+<div class="container">
+    <h1>Công việc chưa hoàn thành của bạn</h1>
+
+    {% if incomplete_tasks %}
+        {% for assignment in incomplete_tasks %}
+            <div class="task-card">
+                <div class="task-title">{{ assignment.task.title }}</div>
+                <div class="task-deadline">
+                    Hạn chót: {{ assignment.task.deadline_date }} {{ assignment.task.deadline_time }}
+                </div>
+                <div class="task-progress">
+                    Mức độ hoàn thành: {{ assignment.progress }}%
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p class="complete-message">🎉 Chúc mừng! Bạn đã hoàn thành tất cả các công việc!</p>
+    {% endif %}
+
+    <a href="{% url 'EMPDashboard' %}" class="back-btn">← Quay về Dashboard</a>
+</div>
+</body>
+</html>

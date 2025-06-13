@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="vi">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +8,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f7fa;
+            background-color: rgb(55, 157, 148);
             margin: 0;
             padding: 0;
         }
@@ -121,37 +120,26 @@
 
     <div class="container">
         <h1>Cập nhật tiến độ công việc</h1>
-
-        <!-- Thông tin công việc -->
         <div class="task-info">
             <h2>Công việc: {{ task.title }}</h2>
             <p><strong>Mô tả:</strong> {{ task.description }}</p>
             <p><strong>Deadline:</strong> {{ task.deadline_date|date:"d/m/Y" }} {{ task.deadline_time|date:"H:i" }}</p>
             <p><strong>Tiến độ hiện tại:</strong> {{ assignment.progress }}%</p>
-
-            <!-- Thanh tiến độ -->
             <div class="progress-bar-container">
                 <div class="progress-bar"></div>
             </div>
         </div>
-
-        <!-- Form cập nhật tiến độ -->
         <div class="form-container">
             <form method="POST">
                 {% csrf_token %}
                 <label for="progress">Cập nhật tiến độ (0-100%):</label>
-                {{ form.progress }}  <!-- Hiển thị form với giá trị tiến độ hiện tại -->
-
+                {{ form.progress }}
                 <button type="submit">Cập nhật tiến độ</button>
             </form>
         </div>
-
-        <!-- Liên kết quay lại -->
         <a href="{% url 'employee_dashboard' %}" class="back-link">
             <i class="fas fa-arrow-left"></i> Quay lại bảng mô tả công việc
         </a>
     </div>
-
 </body>
-
 </html>

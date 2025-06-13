@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <title>Trang cá nhân nhân viên - {{ employee.name }}</title>
+    <link rel="stylesheet" href="{% static 'css/employee_profile.css' %}">
+</head>
+<body>
+    <h1>Thông tin nhân viên: {{ employee.name }}</h1>
+
+    {% if employee.picture %}
+        <img src="{{ employee.picture.url }}" alt="Ảnh nhân viên" width="200" />
+    {% else %}
+        <p>Chưa có ảnh đại diện</p>
+    {% endif %}
+
+    <ul>
+        <li><strong>ID nhân viên:</strong> {{ employee.employee_id }}</li>
+        <li><strong>Email:</strong> {{ employee.email }}</li>
+        <li><strong>Phòng ban:</strong> {{ employee.department }}</li>
+        <li><strong>Chức vụ:</strong> {{ employee.designation }}</li>
+        <li><strong>Địa chỉ:</strong> {{ employee.address }}</li>
+        <li><strong>Số điện thoại:</strong> {{ employee.contact_number }}</li>
+        <li><strong>Ngày sinh:</strong> {{ employee.date_of_birth|date:"d/m/Y" }}</li>
+        <li><strong>Ngày vào làm:</strong> {{ employee.date_of_joining|date:"d/m/Y" }}</li>
+        <li><strong>Mô tả:</strong> {{ employee.description|default:"Không có mô tả" }}</li>
+    </ul>
+
+    <a href="{% url 'EMPDashboard' %}">← Trở về Dashboard</a>
+</body>
+</html>

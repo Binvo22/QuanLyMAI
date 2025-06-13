@@ -1,4 +1,3 @@
-# forms.py
 from django import forms
 from .models import Task, Contact, Department, Employee, TaskAssignment
 from django_select2.forms import Select2MultipleWidget
@@ -10,7 +9,6 @@ class EmployeeForm(forms.ModelForm):
     class Meta:
         model = Employee
         fields = '__all__'
-
 
 class DepartmentForm(forms.ModelForm):
     class Meta:
@@ -24,7 +22,6 @@ class DepartmentForm(forms.ModelForm):
             'description': 'Mô tả',
         }
 
-
 class ContactForm(forms.ModelForm):
     class Meta:
         model = Contact
@@ -36,7 +33,6 @@ class ContactForm(forms.ModelForm):
             'mobile': forms.TextInput(attrs={'placeholder': 'Nhập số điện thoại'}),
             'message': forms.Textarea(attrs={'placeholder': 'Nhập nội dung tin nhắn'}),
         }
-
 
 class TaskForm(forms.ModelForm):
     assigned_to = forms.ModelMultipleChoiceField(
@@ -74,7 +70,6 @@ class TaskForm(forms.ModelForm):
         label='Loại công việc',
         choices=Task.CATEGORY_CHOICES
     )
-
     class Meta:
         model = Task
         fields = ['title', 'description', 'assigned_to', 'deadline_date',
@@ -89,33 +84,21 @@ class TaskForm(forms.ModelForm):
             'priority': 'Độ ưu tiên',
             'category': 'Loại công việc',
         }
-
     def clean_emails(self):
-    # Lấy giá trị từ trường email, tách bằng dấu phẩy và loại bỏ khoảng trắng
         emails = self.cleaned_data.get('emails', '')
         email_list = [email.strip() for email in emails.split(',') if email.strip()]
-
         validator = EmailValidator()
-
         for email in email_list:
             try:
                 validator(email)
             except ValidationError:
                 raise forms.ValidationError(f"Email '{email}' không hợp lệ.")
-
         return ', '.join(email_list)
-
-
-
-
-# forms.py
-
 
 class EmployeeSignUpForm(forms.Form):
     name = forms.CharField(max_length=100)
     email = forms.EmailField()
     password = forms.CharField(widget=forms.PasswordInput)
-    # Add additional form fields here as needed
 
 class TaskAssignmentForm(forms.ModelForm):
     class Meta:

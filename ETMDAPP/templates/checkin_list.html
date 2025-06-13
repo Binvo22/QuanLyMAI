@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <title>Danh sách chấm công</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: rgb(55, 157, 148);
+            padding: 40px 20px;
+            color: #fff;
+        }
+
+        h1 {
+            text-align: center;
+            color: #f0f9f8;
+            margin-bottom: 30px;
+            font-size: 32px;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            font-weight: 700;
+            text-shadow: 0 0 4px rgba(0,0,0,0.15);
+        }
+
+        .back-link {
+            color:rgb(255, 255, 255);
+            text-decoration: none;
+            margin-left: 30px;
+            font-size: 16px;
+            display: inline-block;
+            margin-bottom: 25px;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: #a7d8d0;
+            text-decoration: underline;
+        }
+
+        table {
+            width: 95%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            background:rgb(0, 0, 0);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+
+        th, td {
+            padding: 15px 20px;
+            text-align: center;
+            border-bottom: 1px solid #b2dfdb;
+            font-weight: 600;
+            color:rgb(0, 0, 0);
+            font-size: 15px;
+        }
+
+        th {
+            background-color:rgb(1, 66, 59);
+            color: #e0f2f1;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color:rgb(255, 255, 255);
+        }
+
+        tbody tr:nth-child(odd) {
+            background-color:rgb(255, 255, 255);
+        }
+
+        tbody tr:hover {
+            background-color:rgb(255, 255, 255);
+            color: #004d40;
+            cursor: default;
+        }
+
+        .no-data {
+            text-align: center;
+            padding: 20px;
+            font-size: 16px;
+            color:rgb(255, 255, 255);
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <a href="{% url 'AdminDashboard' %}" class="back-link">
+        ← Quay lại bảng điều khiển
+    </a>
+    <h1>Danh sách chấm công</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Nhân viên</th>
+                <th>Ngày</th>
+                <th>Giờ vào</th>
+                <th>Địa điểm</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for c in checkins %}
+            <tr>
+                <td>{{ c.employee.name }}</td>
+                <td>{{ c.date }}</td>
+                <td>{{ c.check_in_time|date:"H:i:s" }}</td>
+                <td>{{ c.location_note|default:"(Không có địa điểm)" }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4" class="no-data">Không có dữ liệu chấm công.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

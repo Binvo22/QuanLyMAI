@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Danh Sách Nhân Viên</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Bao gồm CSS Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -13,9 +13,11 @@
             background-image: url('https://source.unsplash.com/1600x900/?employee');
             background-size:cover;
             background-position: center;
+            background: rgb(55, 157, 148);
             background-repeat:no-repeat;
-            color: black; /* Thiết lập màu chữ là đen */
+            color: black;
         }
+
         h1 {
             text-align: center;
             margin-bottom: 20px;
@@ -25,15 +27,15 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
         .container {
-            width: 80%; /* Thiết lập độ rộng của container là 80% */
-            margin: 0 auto; /* Canh giữa container */
-            background-color: rgba(255, 255, 255, 0.9); /* Thiết lập màu nền với độ trong suốt */
-            padding: 20px; /* Thêm khoảng cách xung quanh */
-            border-radius: 10px; /* Thêm bo góc cho các cạnh */
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Thêm bóng đổ cho chiều sâu */
+            width: 80%;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
         }
         .table-container {
-            overflow-x: auto; /* Cho phép cuộn ngang khi màn hình nhỏ */
+            overflow-x: auto;
         }
         table {
             width: 100%;
@@ -114,14 +116,12 @@
                 <button onclick="searchEmployees()">Tìm Kiếm</button>
             </form>
         </div>
-        
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script>
             $(document).ready(function() {
                 function searchEmployees() {
                     var email = $('#email').val();
                     var empId = $('#emp_id').val();
-
                     $.ajax({
                         url: '{% url "search_employee" %}',
                         method: 'GET',
@@ -137,7 +137,6 @@
                         }
                     });
                 }
-
                 $('#searchButton').click(function() {
                     searchEmployees();
                 });
@@ -147,7 +146,6 @@
             <i class="fas fa-arrow-left"></i> Quay lại bảng điều khiển
         </a>
         <div class="table-container">
-            
             <table>
                 <thead>
                     <tr>
@@ -188,8 +186,8 @@
                                 {% endif %}
                             </td>
                             <td>
-                                <a href="{% url 'edit_employee' employee.pk %}" class="edit-icon"><i class="fas fa-edit"></i></a> <!-- Icon Sửa -->
-                                <a href="{% url 'delete_employee' employee.pk %}" class="delete-icon"><i class="fas fa-trash-alt"></i></a> <!-- Icon Xóa -->
+                                <a href="{% url 'edit_employee' employee.pk %}" class="edit-icon"><i class="fas fa-edit"></i></a> 
+                                <a href="{% url 'delete_employee' employee.pk %}" class="delete-icon"><i class="fas fa-trash-alt"></i></a>
                             </td>
                     </tr>
                     {% endfor %}

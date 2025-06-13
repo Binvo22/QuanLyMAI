@@ -1,15 +1,17 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: sans-serif;
+    font-family: "Poppins", sans-serif;
     list-style: none;
     text-decoration: none;
 }
-body{
+
+body {
     width: 100vw;
     height: 100%;
 }
+
 .warning {
     display: none;
 }
@@ -18,25 +20,13 @@ section {
     display: flex;
 }
 
-/* Created by Tivotal */
-
-/* Google fonts(Poppins) */
-
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-}
-
 .sidebar {
     position: fixed;
     top: 0;
     left: 0;
     height: 100%;
     width: 260px;
-    background-color: #3d98cd8f;
+    background-color: rgb(55, 157, 148);
     z-index: 100;
     transition: all 0.5s ease;
 }
@@ -48,8 +38,8 @@ section {
 .sidebar .logo {
     height: 60px;
     display: flex;
-    width: 100%;
     align-items: center;
+    width: 100%;
 }
 
 .sidebar .logo i {
@@ -63,10 +53,9 @@ section {
 
 .sidebar .logo .logo-name {
     font-size: 22px;
-    color: #000000;
+    color: #ffffff;
     font-weight: 600;
-    transition: all 0.3s ease;
-    transition-delay: 0.1s;
+    transition: all 0.3s ease 0.1s;
 }
 
 .sidebar.close .logo .logo-name {
@@ -80,22 +69,17 @@ section {
     overflow: auto;
 }
 
-.sidebar.close .nav-list {
-    overflow: visible;
-}
-
 .sidebar .nav-list::-webkit-scrollbar {
     display: none;
 }
 
 .sidebar .nav-list li {
-    position: relative;
-    list-style: none;
     transition: all 0.4s ease;
+    position: relative;
 }
 
 .sidebar .nav-list li:hover {
-    background-color: #ffffff;
+    background-color: rgb(27, 115, 108);
     border-radius: 20px;
 }
 
@@ -114,7 +98,7 @@ section {
     min-width: 78px;
     text-align: center;
     line-height: 50px;
-    color: #000000;
+    color: #ffffff;
     font-size: 20px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -131,11 +115,10 @@ section {
 .sidebar .nav-list li a {
     display: flex;
     align-items: center;
-    text-decoration: none;
 }
 
 .sidebar .nav-list li a .link-name {
-    color: #000000;
+    color: #ffffff;
     font-size: 18px;
     font-weight: 400;
     transition: all 0.4s ease;
@@ -149,7 +132,7 @@ section {
 .sidebar .nav-list li .sub-menu {
     padding: 6px 6px 14px 80px;
     margin-top: -10px;
-    background: #14c2ab;
+    background: #fff;
     display: none;
     transition: all 0.3s ease;
 }
@@ -161,7 +144,7 @@ section {
 .sidebar.close .nav-list li .sub-menu {
     position: absolute;
     left: 100%;
-    top: -10px;
+    top: 0px;
     margin-top: 0;
     padding: 10px 20px;
     border-radius: 0 6px 6px 0;
@@ -169,6 +152,8 @@ section {
     display: block;
     pointer-events: none;
     transition: 0s;
+    display: block;
+    z-index: 1000;
 }
 
 .sidebar.close .nav-list li:hover .sub-menu {
@@ -179,7 +164,7 @@ section {
 }
 
 .sidebar .nav-list li .sub-menu a {
-    color: #000000;
+    color: #000;
     font-size: 15px;
     padding: 5px 0;
     text-align: center;
@@ -198,8 +183,8 @@ section {
 
 .sidebar.close .nav-list li .sub-menu .link-name {
     font-size: 18px;
-    opacity: 1;
     display: block;
+    opacity: 1;
 }
 
 .sidebar .nav-list li .sub-menu.blank {
@@ -220,14 +205,14 @@ section {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #41b5b3;
+    background-color: rgb(55, 157, 148);
     padding: 12px 0;
     transition: all 0.5s ease;
 }
 
 .sidebar.close .profile-details {
-    background-color: none;
     width: 78px;
+    background-color: transparent;
 }
 
 .profile-details .profile-content {
@@ -251,9 +236,13 @@ section {
 
 .profile-details .name-job .name,
 .profile-details .name-job .job {
-    color: #000000;
+    color: #ffffff;
     font-size: 18px;
     white-space: nowrap;
+}
+    
+.profile-details .name-job .job {
+    font-size: 12px;
 }
 
 .sidebar.close .profile-details i,
@@ -263,21 +252,15 @@ section {
     pointer-events: none;
 }
 
-.profile-details .name-job .job {
-    font-size: 12px;
-}
-
 .home-section {
     position: absolute;
-
     width: calc(100% - 260px);
     left: 260px;
-    background-color: #000000;
+    background-color: rgb(55, 157, 148);
     transition: all 0.5s ease;
-
 }
 
-.sidebar.close~.home-section {
+.sidebar.close ~ .home-section {
     left: 78px;
     width: calc(100% - 78px);
 }
@@ -290,7 +273,7 @@ section {
 
 .home-section .home-content i,
 .home-section .home-content .text {
-    color: #ffffff;
+    color: #fff;
     font-size: 35px;
 }
 
@@ -306,10 +289,6 @@ section {
 }
 
 @media (max-width: 400px) {
-    .sidebar.close .nav-list li .sub-menu {
-        display: none;
-    }
-
     .sidebar {
         width: 78px;
     }
@@ -318,13 +297,17 @@ section {
         width: 0;
     }
 
+    .sidebar.close .nav-list li .sub-menu {
+        display: none;
+    }
+
     .home-section {
         left: 78px;
         width: calc(100% - 78px);
         z-index: 100;
     }
 
-    .sidebar.close~.home-section {
+    .sidebar.close ~ .home-section {
         width: 100%;
         left: 0;
     }
@@ -332,19 +315,7 @@ section {
 
 .bottom-nav li a:hover,
 .center-nav li a:hover {
-    color: rgb(255, 255, 255);
-}
-
-
-hr {
-    margin-left: 20px;
-    height: 1.5px;
-    display: block;
-    margin-bottom: 5px;
-    width: 150px;
-    background-color: #171818;
-    outline: none;
-    border: none;
+    color: #fff;
 }
 
 .bottom-nav {
@@ -352,10 +323,13 @@ hr {
     bottom: 30px;
 }
 
-
-/* ======= Main Content Styling ======= */
-.bars {
-    cursor: pointer;
+hr {
+    margin-left: 20px;
+    width: 150px;
+    height: 1.5px;
+    background-color: #171818;
+    border: none;
+    margin-bottom: 5px;
 }
 
 .main-content {
@@ -385,16 +359,14 @@ hr {
 
 .input input {
     width: 90%;
-    outline: none;
-    border: none;
-    border: 1px solid rgb(22, 19, 19);
     padding: 10px;
     border-radius: 10px;
+    border: 1px solid #161313;
+    outline: none;
 }
 
 .user {
     width: 40px;
-    position: relative;
     transform: scaleX(-1);
 }
 
@@ -402,11 +374,9 @@ hr {
     width: 100%;
 }
 
-/* ======== Styling Dashboard ======== */
 .dashboard {
     width: 60%;
     padding: 40px;
-    display: block;
     position: absolute;
     left: 55%;
     top: 40%;
@@ -418,8 +388,8 @@ hr {
 }
 
 .dtext {
-    background: white;
-    border: 1px solid black;
+    background: #fff;
+    border: 1px solid #000;
     float: left;
     padding-right: 100%;
 }
@@ -427,26 +397,30 @@ hr {
 .color-box {
     width: 100%;
     display: flex;
-    flex-wrap: nowrap;
-    color: white;
-    justify-content: space-between;
+    color: #000000;
+    flex-wrap: wrap; 
+    justify-content: center;
+    gap: 43px;
+    margin-top: 600px;
 }
 
 .box {
+    flex: 0 1 45%;
     display: flex;
-    height: 120px;
+    height: 200px;
+    width: 300px;
     flex-direction: column;
-    width: 180px;
     align-items: center;
     justify-content: center;
     border-radius: 10px;
-    margin: 10px 5px;
+    margin: 10px 10px;
+    max-width: 400px;
 }
 
 .box i {
-    font-size: 1.3rem;
+    font-size: 1.7rem;
     margin-bottom: 5px;
-    color: #ffffff;
+    color: #000000;
 }
 
 .box p {
@@ -454,65 +428,17 @@ hr {
 }
 
 .pink {
-    background-color: rgb(19, 184, 234);
+    background-color: #F9D5E5;
 }
 
 .orange {
-    background-color: rgb(252, 108, 5);
+    background-color: #FCE5C7;
 }
 
 .green {
-    background-color: rgb(122, 10, 10);
+    background-color: #CFFFE5;
 }
 
 .blue {
-    background-color: rgb(38, 28, 231);
-}
-
-/* ======== Styling Recent Activity ======== */
-.activity {
-    padding: 10px;
-    margin: 10px 0;
-}
-
-.activity table {
-    width: 100%;
-}
-
-tr {
-    row-gap: 0px;
-}
-
-th {
-    line-height: 40px;
-    text-align: left;
-}
-
-td {
-    line-height: 28px;
-}
-
-td,
-th {
-    margin: 0;
-}
-
-
-@media screen and (max-width: 992px) {
-    .dashboard {
-        width: 300px;
-        margin-top: -400px;
-        /* Adjust margin-top for even smaller screens */
-    }
-}
-
-/* Media query for mobile screens */
-@media screen and (max-width: 576px) {
-    .dashboard {
-        width: 200px;
-        margin-top: -380px;
-        /* Adjust margin-top for mobile screens */
-        padding: 20px;
-    }
-
+    background-color: #D6E8FF;
 }

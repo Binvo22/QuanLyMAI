@@ -1,81 +1,27 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
-  <head>
+<html lang="vi">
+<head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/static/css/login.css" />
-    <link rel="stylesheet" href="/static/css/home.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-    />
-     <link
-      rel="shortcut icon"
-      href="/static/IMAGES/login.png"
-      type="image/x-icon"
-    />
-    <title>Đăng Nhập</title>
-  </head>
-  <body>
-    <div class="container" id="container">
-      <div class="form-container sign-up-container">
-        <!-- Sign Up Form -->
-        <form  method="POST">
+    <title>Đăng nhập nhân viên</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+<body>
+<div class="container">
+    <h2>Đăng nhập nhân viên</h2>
+    {% if error_message %}
+    <div class="error">{{ error_message }}</div>
+    {% endif %}
+    {% if success_message %}
+    <div class="success">{{ success_message }}</div>
+    {% endif %}
+    <form method="post">
         {% csrf_token %}
-          <h1>Tạo tài khoản</h1>
-          <span>hoặc sử dụng email để đăng ký</span>
-          <input type="text" placeholder="Name" name="Name" />
-          <input type="email" placeholder="Email" name="Email" />
-          <input type="password" placeholder="Password" name="Password" />
-          <button>Đăng ký</button>
-        </form>
-      </div>
-      <div class="form-container sign-in-container">
-        <!-- Sign In Form -->
-        <form  method="POST">
-         {% csrf_token %}
-          <h1>Đăng nhập</h1>
-          <input type="email" placeholder="Email" name="LOGINEmail" />
-          <input type="password" placeholder="Password" name="LOGINPassword" />
-          <button type="submit">Đăng nhập</button>
-      </form>
-      </div>
-      <div class="overlay-container">
-        <div class="overlay">
-          <div class="overlay-panel overlay-left">
-            <h2>Chào mừng trở lại!</h2>
-            <p>
-              Để tiếp tục kết nối với chúng tôi, vui lòng đăng nhập bằng thông tin cá nhân của bạn
-            </p>
-            <button class="ghost" id="signIn">Sign In</button>
-          </div>
-          <div class="overlay-panel overlay-right">
-            <h2>Xin chào bạn của tôi</h2>
-            <p>Nhập thông tin cá nhân để bắt đầu hành trình cùng chúng tôi</p>
-            <button class="ghost" id="signUp">Đăng ký</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <footer>
-      <p>
-        &copy; Được tạo bởi Võ Tấn Bin
-      </p>
-    </footer>
-
-    <script>
-      const signUpButton = document.getElementById("signUp");
-      const signInButton = document.getElementById("signIn");
-      const container = document.getElementById("container");
-
-      signUpButton.addEventListener("click", () => {
-        container.classList.add("right-panel-active");
-      });
-
-      signInButton.addEventListener("click", () => {
-        container.classList.remove("right-panel-active");
-      });
-    </script>
-  </body>
+        <input type="email" name="email" placeholder="Email" required />
+        <input type="password" name="password" placeholder="Mật khẩu" required />
+        <button type="submit">Đăng nhập</button>
+    </form>
+    <p>Chưa có tài khoản? <a href="{% url 'signup' %}">Đăng ký tại đây</a></p>
+</div>
+</body>
 </html>

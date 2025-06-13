@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: sans-serif;
+    font-family: "Poppins", sans-serif;
     list-style: none;
     text-decoration: none;
 }
@@ -15,25 +15,13 @@ section {
     display: flex;
 }
 
-/* Created by Tivotal */
-
-/* Google fonts(Poppins) */
-
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-}
-
 .sidebar {
     position: fixed;
     top: 0;
     left: 0;
     height: 100%;
     width: 260px;
-    background-color: #11101d;
+    background-color: rgb(55, 157, 148);
     z-index: 100;
     transition: all 0.5s ease;
 }
@@ -45,8 +33,8 @@ section {
 .sidebar .logo {
     height: 60px;
     display: flex;
-    width: 100%;
     align-items: center;
+    width: 100%;
 }
 
 .sidebar .logo i {
@@ -62,8 +50,7 @@ section {
     font-size: 22px;
     color: #fff;
     font-weight: 600;
-    transition: all 0.3s ease;
-    transition-delay: 0.1s;
+    transition: all 0.3s ease 0.1s;
 }
 
 .sidebar.close .logo .logo-name {
@@ -86,13 +73,12 @@ section {
 }
 
 .sidebar .nav-list li {
-    position: relative;
-    list-style: none;
-    transition: all 0.4s ease;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .sidebar .nav-list li:hover {
-    background-color: #1d1b31;
+    background-color: rgb(22, 117, 109);
 }
 
 .sidebar .nav-list li .icon-link {
@@ -107,7 +93,8 @@ section {
 
 .sidebar .nav-list li i {
     height: 50px;
-    min-width: 78px;
+    min-width: 50px;
+    width: 50px;
     text-align: center;
     line-height: 50px;
     color: #fff;
@@ -127,14 +114,15 @@ section {
 .sidebar .nav-list li a {
     display: flex;
     align-items: center;
-    text-decoration: none;
 }
 
 .sidebar .nav-list li a .link-name {
     color: #fff;
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 400;
     transition: all 0.4s ease;
+    white-space: normal !important;
+    padding-right: 10px;
 }
 
 .sidebar.close .nav-list li a .link-name {
@@ -145,7 +133,7 @@ section {
 .sidebar .nav-list li .sub-menu {
     padding: 6px 6px 14px 80px;
     margin-top: -10px;
-    background: #1d1b31;
+    background-color: rgb(255, 255, 255);
     display: none;
     transition: all 0.3s ease;
 }
@@ -162,8 +150,8 @@ section {
     padding: 10px 20px;
     border-radius: 0 6px 6px 0;
     opacity: 0;
-    display: block;
     pointer-events: none;
+    display: block;
     transition: 0s;
 }
 
@@ -175,8 +163,8 @@ section {
 }
 
 .sidebar .nav-list li .sub-menu a {
-    color: #fff;
-    font-size: 15px;
+    color: #000000;
+    font-size: 14px;
     padding: 5px 0;
     white-space: nowrap;
     opacity: 0.6;
@@ -215,13 +203,13 @@ section {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #d322c2;
+    background-color: rgb(55, 157, 148);
     padding: 12px 0;
     transition: all 0.5s ease;
 }
 
 .sidebar.close .profile-details {
-    background-color: none;
+    background-color: transparent;
     width: 78px;
 }
 
@@ -247,8 +235,15 @@ section {
 .profile-details .name-job .name,
 .profile-details .name-job .job {
     color: #fff;
-    font-size: 18px;
     white-space: nowrap;
+}
+
+.profile-details .name-job .name {
+    font-size: 18px;
+}
+
+.profile-details .name-job .job {
+    font-size: 12px;
 }
 
 .sidebar.close .profile-details i,
@@ -258,21 +253,15 @@ section {
     pointer-events: none;
 }
 
-.profile-details .name-job .job {
-    font-size: 12px;
-}
-
 .home-section {
     position: absolute;
-
     width: calc(100% - 260px);
     left: 260px;
-    background-color: #000000;
+    background-color: rgb(55, 157, 148);
     transition: all 0.5s ease;
-
 }
 
-.sidebar.close~.home-section {
+.sidebar.close ~ .home-section {
     left: 78px;
     width: calc(100% - 78px);
 }
@@ -285,7 +274,7 @@ section {
 
 .home-section .home-content i,
 .home-section .home-content .text {
-    color: #ffffff;
+    color: #fff;
     font-size: 35px;
 }
 
@@ -319,7 +308,7 @@ section {
         z-index: 100;
     }
 
-    .sidebar.close~.home-section {
+    .sidebar.close ~ .home-section {
         width: 100%;
         left: 0;
     }
@@ -327,18 +316,14 @@ section {
 
 .bottom-nav li a:hover,
 .center-nav li a:hover {
-    color: purple;
+    background-color: rgb(55, 157, 148);
 }
 
-
 hr {
-    margin-left: 20px;
+    margin: 0 0 5px 20px;
     height: 1.5px;
-    display: block;
-    margin-bottom: 5px;
     width: 150px;
     background-color: #171818;
-    outline: none;
     border: none;
 }
 
@@ -347,8 +332,6 @@ hr {
     bottom: 30px;
 }
 
-
-/* ======= Main Content Styling ======= */
 .bars {
     cursor: pointer;
 }
@@ -380,11 +363,10 @@ hr {
 
 .input input {
     width: 90%;
-    outline: none;
-    border: none;
-    border: 1px solid rgb(22, 19, 19);
     padding: 10px;
+    border: 1px solid #161313;
     border-radius: 10px;
+    outline: none;
 }
 
 .user {
@@ -397,11 +379,9 @@ hr {
     width: 100%;
 }
 
-/* ======== Styling Dashboard ======== */
 .dashboard {
     width: 60%;
     padding: 40px;
-    display: block;
     position: absolute;
     left: 55%;
     top: 40%;
@@ -413,8 +393,8 @@ hr {
 }
 
 .dtext {
-    background: white;
-    border: 1px solid black;
+    background: #fff;
+    border: 1px solid #000;
     float: left;
     padding-right: 100%;
 }
@@ -422,25 +402,26 @@ hr {
 .color-box {
     width: 100%;
     display: flex;
-    flex-wrap: nowrap;
     justify-content: space-between;
+    flex-wrap: nowrap;
 }
 
 .box {
     display: flex;
-    height: 120px;
     flex-direction: column;
-    width: 180px;
+    height: 160px;
+    width: 30%;
+    min-width: 250px;
     align-items: center;
     justify-content: center;
     border-radius: 10px;
-    margin: 10px 5px;
+    margin: 10px 10px;
 }
 
 .box i {
     font-size: 1.3rem;
     margin-bottom: 5px;
-    color: #000000;
+    color: #000;
 }
 
 .box p {
@@ -448,22 +429,21 @@ hr {
 }
 
 .pink {
-    background-color: rgb(230, 123, 157);
+    background-color: #F9D5E5;
 }
 
 .orange {
-    background-color: rgb(202, 144, 102);
+    background-color: #FCE5C7;
 }
 
 .green {
-    background-color: rgb(94, 222, 203);
+    background-color: #CFFFE5;
 }
 
 .blue {
-    background-color: rgb(154, 193, 230);
+    background-color: #D6E8FF;
 }
 
-/* ======== Styling Recent Activity ======== */
 .activity {
     padding: 10px;
     margin: 10px 0;
@@ -486,26 +466,6 @@ td {
     line-height: 28px;
 }
 
-td,
-th {
+td, th {
     margin: 0;
-}
-
-@media screen and (max-width:630px) {
-    section {
-        display: none;
-    }
-
-    .warning {
-        padding: 5rem;
-        text-align: center;
-        line-height: 35px;
-        background-color: rgb(183, 51, 51);
-        display: flex;
-        color: #8b1e1e;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        height: 100vh;
-    }
 }

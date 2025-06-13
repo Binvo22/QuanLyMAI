@@ -1,179 +1,189 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Thêm Phòng Ban</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: rgb(55, 157, 148);
+      color: #333;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .container {
+      background: #f8f9fa;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      max-width: 900px;
+      width: 100%;
+      padding: 40px 50px;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .container:hover {
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.15);
+    }
+
+    h1 {
+      margin-bottom: 30px;
+      font-weight: 700;
+      font-size: 2.5rem;
+      color: #222;
+      text-align: center;
+      letter-spacing: 1.2px;
+    }
+
+    form {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .form-column {
+      flex: 1 1 45%;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    label {
+      font-weight: 600;
+      font-size: 1rem;
+      color: #444;
+      user-select: none;
+    }
+
+    input[type="text"],
+    textarea {
+      padding: 12px 15px;
+      border: 1.8px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      resize: vertical;
+      min-height: 38px;
+      font-family: inherit;
+    }
+
+    input[type="text"]:focus,
+    textarea:focus {
+      outline: none;
+      border-color: #007bff;
+      box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+      background-color: #fff;
+    }
+
+    textarea {
+      min-height: 100px;
+      font-size: 1rem;
+    }
+
+    .button-wrapper {
+      flex-basis: 100%;
+      margin-top: 30px;
+      display: flex;
+      justify-content: flex-end;
+      gap: 15px;
+    }
+
+    button {
+      padding: 12px 28px;
+      border: none;
+      border-radius: 8px;
+      background-color: #007bff;
+      color: #fff;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+    }
+
+    button:hover {
+      background-color: #0056b3;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 14px rgba(0, 86, 179, 0.5);
+    }
+
+    button[type="reset"] {
+      background-color: #6c757d;
+      box-shadow: 0 4px 10px rgba(108, 117, 125, 0.3);
+    }
+
+    button[type="reset"]:hover {
+      background-color: #565e64;
+      box-shadow: 0 6px 14px rgba(86, 94, 100, 0.5);
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 30px;
+      color: #007bff;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+      user-select: none;
+    }
+
+    .back-link:hover {
+      color: #0056b3;
+      text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 720px) {
+      form {
+        flex-direction: column;
+      }
+      .form-column {
+        flex-basis: 100%;
+      }
+      .button-wrapper {
+        justify-content: center;
+      }
+    }
+  </style>
 </head>
-<style>
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
-.box {
-    width: 100vw;
-    padding: 50px;
-    background-color: #f8f9fa;
-    /* Light gray background */
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-}
-
-h1 {
-    margin-top: 0;
-    margin-bottom: 40px;
-    font-size: 38px;
-    font-weight: bolder;
-    color: #000000;
-    /* Dark text color */
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-}
-
-.row {
-    display: flex;
-    margin-bottom: 40px;
-    /* Increased margin */
-}
-
-.col {
-    flex: 1;
-    margin-right: 40px;
-    /* Increased margin */
-}
-
-.col:last-child {
-    margin-right: 0;
-}
-
-label {
-    font-size: 18px;
-    margin-bottom: 15px;
-    /* Increased margin */
-    color: #555;
-    /* Medium gray text color */
-}
-
-input,
-select,
-textarea {
-    width: 100%;
-    padding: 15px;
-    border: 1px solid #ccc;
-    /* Light gray border */
-    border-radius: 8px;
-}
-
-textarea {
-    resize: vertical;
-}
-
-.button-wrapper {
-    margin-top: 40px;
-    display: flex;
-    justify-content: flex-end;
-}
-
-button {
-    padding: 15px 30px;
-    margin-left: 20px;
-    border: none;
-    border-radius: 8px;
-    background-color: #007bff;
-    /* Blue button color */
-    color: #fff;
-    /* White text color */
-    font-size: 18px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #0056b3;
-    /* Darker blue color on hover */
-}
-.form-columns {
-  display: flex;
-}
-
-.form-column {
-  flex: 1;
-  padding: 0 10px;
-}
-
-.form-column label {
-  display: block;
-  margin-bottom: 5px;
-}
-
-.form-column input,
-.form-column textarea {
-  width: 100%;
-  padding: 8px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.button-wrapper {
-  margin-top: 20px;
-  text-align: center;
-}
-
-.button-wrapper button {
-  padding: 10px 20px;
-  margin-right: 10px;
-  border: none;
-  border-radius: 5px;
-  background-color: #007bff;
-  color: #fff;
-  cursor: pointer;
-}
-
-.button-wrapper button:hover {
-  background-color: #0056b3;
-}
-
-
-</style>
 <body>
-<div class="container">
-  <div class="box">
+  <div class="container">
     <h1>Thêm Phòng Ban</h1>
-    <form action="" method="POST">
+    <form action="" method="POST" novalidate>
       {% csrf_token %}
-      <div class="form-columns">
-        <div class="form-column">
-          {{ form.name.label_tag }}
-          {{ form.name }}
-          {{ form.code.label_tag }}
-          {{ form.code }}
-          {{ form.head.label_tag }}
-          {{ form.head }}
-        </div>
-        <div class="form-column">
-          {{ form.location.label_tag }}
-          {{ form.location }}
-          {{ form.description.label_tag }}
-          {{ form.description }}
-        </div>
+      <div class="form-column">
+        {{ form.name.label_tag }}
+        {{ form.name }}
+        {{ form.code.label_tag }}
+        {{ form.code }}
+        {{ form.head.label_tag }}
+        {{ form.head }}
+      </div>
+      <div class="form-column">
+        {{ form.location.label_tag }}
+        {{ form.location }}
+        {{ form.description.label_tag }}
+        {{ form.description }}
       </div>
       <div class="button-wrapper">
         <button type="reset">Đặt lại</button>
         <button type="submit">Gửi</button>
       </div>
-      <a href="{% url 'AdminDashboard' %}" class="back-link">
-        <i class="fas fa-arrow-left"></i> Quay lại bảng điều khiển
-      </a>
     </form>
+    <a href="{% url 'AdminDashboard' %}" class="back-link" aria-label="Quay lại bảng điều khiển">
+      &larr; Quay lại bảng điều khiển
+    </a>
   </div>
-</div>
-
 </body>
 </html>

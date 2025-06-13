@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <link
       rel="shortcut icon"
-      href="/static/IMAGES/contact.jpg"
+      href="/static/IMAGES/mono.jpg"
       type="image/x-icon"
     />
     <title>Liên Hệ</title>
@@ -15,287 +15,283 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         body {
-  margin: 0;
-  padding: 0;
-  background: url(/static/IMAGES/communicate.avif);
-  padding-bottom: 100px;
-  background-position:center;
-  background-size:cover;
-  backgorund-attachment:fixed;
-  background-repeat:no-repeat;
-  width:100vw;
-  height:100vh;
-}        
+          margin: 0;
+          padding: 0;
+          background-color: rgb(55, 157, 148);  
+          padding-bottom: 100px;
+          background-position:center;
+          background-size:cover;
+          backgorund-attachment:fixed;
+          background-repeat:no-repeat;
+          width:100vw;
+          height:100vh;
+        }        
 
-#contact {
-  width: 100%;
-  height: 100%;
-}
-input{
-    border-radius:10px;
-    border:none;
-    background:black;
-    color:white;
-    padding:10px;
-    outline: none;
-}
+        #contact {
+          width: 100%;
+          height: 100%;
+        }
+        input{
+            border-radius:10px;
+            border:none;
+            background:white;
+            color:white;
+            padding:10px;
+            outline: none;
+        }
 
-.section-header {
-  text-align: center;
-  margin: 0 auto;
-  padding: 30px 0;
-  font: 300 60px 'Oswald', sans-serif;
-  color: black;
-  text-transform: uppercase;
-  letter-spacing: 5px;
-}
+        .section-header {
+          text-align: center;
+          margin: 0 auto;
+          padding: 30px 0;
+          font: 300 60px 'Oswald', sans-serif;
+          color: black;
+          text-transform: uppercase;
+          letter-spacing: 5px;
+        }
 
-.contact-wrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin: 0 auto;
-  padding: 20px;
-  position: relative;
-  max-width: 840px;
-}
+        .contact-wrapper {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          margin: 0 auto;
+          padding: 20px;
+          position: relative;
+          max-width: 840px;
+        }
 
-/* Left contact page */
-.form-horizontal {
-  /*float: left;*/
-  max-width: 400px;
-  font-family: 'Lato';
-  font-weight: 400;
-}
+        /* Left contact page */
+        .form-horizontal {
+          /*float: left;*/
+          max-width: 400px;
+          font-family: 'Lato';
+          font-weight: 400;
+        }
 
-.form-control, 
-textarea {
-  max-width: 400px;
-  background-color: white;
-  color: black;
-  border:3px solid black;
-  border-radius:20px;
-  padding:10px;
-  letter-spacing: 1px;
-  height:200px;
-}
+        .form-control, 
+        textarea {
+          max-width: 400px;
+          background-color: white;
+          color: black;
+          border:3px solid black;
+          border-radius:20px;
+          padding:10px;
+          letter-spacing: 1px;
+          height:200px;
+        }
 
-.send-button {
-  margin: 20px;
-  height: 34px;
-  width: 400px;
-  overflow: hidden;
-  transition: all .2s ease-in-out;
-}
+        .send-button {
+          margin: 20px;
+          height: 34px;
+          width: 400px;
+          overflow: hidden;
+          transition: all .2s ease-in-out;
+        }
 
-.alt-send-button {
-  width: 400px;
-  height: 34px;
-  transition: all .2s ease-in-out;
-}
+        .alt-send-button {
+          width: 400px;
+          height: 34px;
+          transition: all .2s ease-in-out;
+        }
 
-.send-text {
-  display: block;
-  margin-top: 10px;
-  font: 700 12px 'Lato', sans-serif;
-  letter-spacing: 2px;
-}
+        .send-text {
+          display: block;
+          margin-top: 10px;
+          font: 700 12px 'Lato', sans-serif;
+          letter-spacing: 2px;
+        }
 
-.alt-send-button:hover {
-  transform: translate3d(0px, -29px, 0px);
-}
+        .alt-send-button:hover {
+          transform: translate3d(0px, -29px, 0px);
+        }
 
-/* Begin Right Contact Page */
-.direct-contact-container {
-  max-width: 400px;
-}
+        /* Begin Right Contact Page */
+        .direct-contact-container {
+          max-width: 400px;
+        }
 
-/* Location, Phone, Email Section */
-.contact-list {
-  list-style-type: none;
-  margin-left: -30px;
-  padding-right: 20px;
-}
+        /* Location, Phone, Email Section */
+        .contact-list {
+          list-style-type: none;
+          margin-left: -30px;
+          padding-right: 20px;
+        }
 
-.list-item {
-  line-height: 4;
-  color: black;
-}
+        .list-item {
+          line-height: 4;
+          color: #fff;
+        }
 
-.contact-text {
-  font: 300 18px 'Lato', sans-serif;
-  letter-spacing: 1.9px;
-  color: black;
-}
+        .contact-text {
+          font: 300 18px 'Lato', sans-serif;
+          letter-spacing: 1.9px;
+          color: #fff;
+        }
 
-.place {
-  margin-left: 62px;
-}
+        .place {
+          margin-left: 62px;
+        }
 
-.phone {
-  margin-left: 56px;
-}
+        .phone {
+          margin-left: 56px;
+        }
 
-.gmail {
-  margin-left: 53px;
-}
+        .gmail {
+          margin-left: 53px;
+        }
 
-.contact-text a {
-  color: black;
-  text-decoration: none;
-  transition-duration: 0.2s;
-}
+        .contact-text a {
+          color: #fff;
+          text-decoration: none;
+          transition-duration: 0.2s;
+        }
 
-.contact-text a:hover {
-  color: #fff;
-  text-decoration: none;
-}
+        .contact-text a:hover {
+          color: #fff;
+          text-decoration: none;
+        }
 
 
-/* Social Media Icons */
-.social-media-list {
-  position: relative;
-  font-size: 22px;
-  text-align: center;
-  width: 100%;
-  margin: 0 auto;
-  padding: 0;
-}
+        /* Social Media Icons */
+        .social-media-list {
+          position: relative;
+          font-size: 22px;
+          text-align: center;
+          width: 100%;
+          margin: 0 auto;
+          padding: 0;
+        }
 
-.social-media-list li a {
-  color: #fff;
-}
+        .social-media-list li a {
+          color: #fff;
+        }
 
-.social-media-list li {
-  position: relative; 
-  display: inline-block;
-  height: 60px;
-  width: 60px;
-  margin: 10px 3px;
-  line-height: 60px;
-  border-radius: 50%;
-  color: black;
-  background-color: rgb(27,27,27);
-  cursor: pointer; 
-  transition: all .2s ease-in-out;
-}
+        .social-media-list li {
+          position: relative; 
+          display: inline-block;
+          height: 60px;
+          width: 60px;
+          margin: 10px 3px;
+          line-height: 60px;
+          border-radius: 50%;
+          color: black;
+          background-color: rgb(27,27,27);
+          cursor: pointer; 
+          transition: all .2s ease-in-out;
+        }
 
-.social-media-list li:after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 60px;
-  height: 60px;
-  line-height: 60px;
-  border-radius: 50%;
-  opacity: 0;
-  box-shadow: 0 0 0 1px #fff;
-  transition: all .2s ease-in-out;
-}
+        .social-media-list li:after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 60px;
+          height: 60px;
+          line-height: 60px;
+          border-radius: 50%;
+          opacity: 0;
+          box-shadow: 0 0 0 1px #fff;
+          transition: all .2s ease-in-out;
+        }
 
-.social-media-list li:hover {
-  background-color: #fff; 
-}
+        .social-media-list li:hover {
+          background-color: #fff; 
+        }
 
-.social-media-list li:hover:after {
-  opacity: 1;  
-  transform: scale(1.12);
-  transition-timing-function: cubic-bezier(0.37,0.74,0.15,1.65);
-}
+        .social-media-list li:hover:after {
+          opacity: 1;  
+          transform: scale(1.12);
+          transition-timing-function: cubic-bezier(0.37,0.74,0.15,1.65);
+        }
 
-.social-media-list li:hover a {
-  color: #000;
-}
+        .social-media-list li:hover a {
+          color: #fff;
+        }
 
-.copyright {
-  font: 200 14px 'Oswald', sans-serif;
-  color: #555;
-  letter-spacing: 1px;
-  text-align: center;
-}
+        .copyright {
+          font: 200 14px 'Oswald', sans-serif;
+          color: #fff;
+          letter-spacing: 1px;
+          text-align: center;
+        }
 
-hr {
-  border-color: black;
-}
+        hr {
+          border-color: black;
+        }
 
-/* Begin Media Queries*/
-@media screen and (max-width: 850px) {
-  .contact-wrapper {
-    display: flex;
-    flex-direction: column;
-  }
-  .direct-contact-container, .form-horizontal {
-    margin: 0 auto;
-  }  
-  
-  .direct-contact-container {
-    margin-top: 60px;
-    max-width: 300px;
-  }    
-  .social-media-list li {
-    height: 60px;
-    width: 60px;
-    line-height: 60px;
-  }
-  .social-media-list li:after {
-    width: 60px;
-    height: 60px;
-    line-height: 60px;
-  }
-}
+        /* Begin Media Queries*/
+        @media screen and (max-width: 850px) {
+          .contact-wrapper {
+            display: flex;
+            flex-direction: column;
+          }
+          .direct-contact-container, .form-horizontal {
+            margin: 0 auto;
+          }  
+          
+          .direct-contact-container {
+            margin-top: 60px;
+            max-width: 300px;
+          }    
+          .social-media-list li {
+            height: 60px;
+            width: 60px;
+            line-height: 60px;
+          }
+          .social-media-list li:after {
+            width: 60px;
+            height: 60px;
+            line-height: 60px;
+          }
+        }
 
-@media screen and (max-width: 569px) {
+        @media screen and (max-width: 569px) {
 
-  .direct-contact-container, .form-wrapper {
-    float: none;
-    margin: 0 auto;
-  }  
-  .form-control, textarea {
-    
-    margin: 0 auto;
-  }
- 
-  .name, .email, textarea {
-    width: 280px;
-  } 
-  
-  .direct-contact-container {
-    margin-top: 60px;
-    max-width: 280px;
-  }  
-  .social-media-list {
-    left: 0;
-  }
-  .social-media-list li {
-    height: 55px;
-    width: 55px;
-    line-height: 55px;
-    font-size: 2rem;
-  }
-  .social-media-list li:after {
-    width: 55px;
-    height: 55px;
-    line-height: 55px;
-  }
-  
-}
+          .direct-contact-container, .form-wrapper {
+            float: none;
+            margin: 0 auto;
+          }  
+          .form-control, textarea {
+            
+            margin: 0 auto;
+          }
+        
+          .name, .email, textarea {
+            width: 280px;
+          } 
+          
+          .direct-contact-container {
+            margin-top: 60px;
+            max-width: 280px;
+          }  
+          .social-media-list {
+            left: 0;
+          }
+          .social-media-list li {
+            height: 55px;
+            width: 55px;
+            line-height: 55px;
+            font-size: 2rem;
+          }
+          .social-media-list li:after {
+            width: 55px;
+            height: 55px;
+            line-height: 55px;
+          }
+          
+        }
 
-@media screen and (max-width: 410px) {
-  .send-button {
-    width: 100%;
-  }
-}
+        @media screen and (max-width: 410px) {
+          .send-button {
+            width: 100%;
+          }
+        }
     </style>
 </head>
 <body>
     {% include "Nav.html" %}
     <section id="contact">
-            
       <div class="contact-wrapper">
-    
-      <!-- Left contact page --> 
-
         <form method="POST">
         {% csrf_token %}
           <div class="form-group">
@@ -304,25 +300,21 @@ hr {
               {{ form.last_name }}
             </div>
           </div>
-
           <div class="form-group">
             <div class="col-sm-12">
                {{ form.email }}
                {{ form.mobile }}
             </div>
           </div>
-
           <div class="form-group">
             <div class="col-sm-12">
                 {{ form.message }}
             </div>
           </div>
-
           <button class="btn btn-primary send-button" id="submit" type="submit">
             <div class="alt-send-button">
               <i class="fa fa-paper-plane"></i><span class="send-text">GỬI</span>
             </div>
-        
           </button>
           <script>
           document.querySelector('#contact-form').addEventListener('submit', (e) => {
@@ -331,30 +323,19 @@ hr {
             e.target.elements.email.value = '';
             e.target.elements.message.value = '';
           });
-
           </script>
         </form>
-      <!-- Left contact page --> 
-
           <div class="direct-contact-container"></br></br>
             <hr>
             <ul class="contact-list">
               <li class="list-item"><i class="fa fa-map-marker fa-2x"><span class="contact-text place">33 Phạm Nhữ Tăng</span></i></li>
-            
               <li class="list-item"><i class="fa fa-phone fa-2x"><span class="contact-text phone"><a href="tel:1-212-555-5555" title="Gọi cho tôi">0858563279</a></span></i></li>
-            
               <li class="list-item"><i class="fa fa-envelope fa-2x"><span class="contact-text gmail"><a href="mailto:#" title="Gửi email cho tôi">binnuoc123@gmail.com</a></span></i></li>
-            
             </ul>
-
             <hr>
-
             <div class="copyright">&copy; Tất cả quyền được bảo vệ bởi nhà phát hành.</div>
-
           </div>
-      
       </div>
-
     </section>  
 </body>
 </html>

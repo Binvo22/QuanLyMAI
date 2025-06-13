@@ -5,18 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thành Công</title>
     <script>
-        // Hàm để hiển thị thông báo thành công và chuyển hướng
         function showSuccessAndRedirect() {
-            // Hiển thị modal
             document.getElementById("successModal").style.display = "block";
-            // Chuyển hướng sau 3 giây
             setTimeout(function(){
-                window.location.href = "{% url 'AdminDashboard' %}"; // Thay bằng URL trang AdminDashboard của bạn
-            }, 3000); // 3000 milliseconds = 3 giây
+                window.location.href = "{% url 'AdminDashboard' %}";
+            }, 3000);
         }
     </script>
     <style>
-        /* CSS cho modal */
         .modal {
             display: none;
             position: fixed;
@@ -54,7 +50,6 @@
     </style>
 </head>
 <body onload="showSuccessAndRedirect()">
-    <!-- Modal thành công -->
     <div id="successModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="document.getElementById('successModal').style.display = 'none';">&times;</span>

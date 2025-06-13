@@ -347,16 +347,16 @@ body {
   fill: #2b3a60;
 }
 .back-button {
-  font-size: 20px;  /* Thay đổi kích thước chữ nếu cần */
+  font-size: 20px;
   background-color: #007bff;
   color: white;
-  padding: 10px 20px;  /* Tăng khoảng cách trong nút */
+  padding: 10px 20px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  width: auto;  /* Chỉ để chiều rộng tự động, không kéo dài */
-  max-width: 200px;  /* Giới hạn chiều rộng tối đa */
-  text-align: center;  /* Canh giữa chữ trong nút */
+  width: auto;
+  max-width: 200px;
+  text-align: center;
 }
 
 .back-button:hover {

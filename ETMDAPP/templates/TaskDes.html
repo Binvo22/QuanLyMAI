@@ -1,151 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% comment %} <link rel="stylesheet" href="/static/css/taskemployeelist.css"> {% endcomment %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Mô Tả Công Việc</title>
-</head>
-<style>
-.container {
-    display:flex-box;
-    flex-direction: column;
-}
-
-.user-icon {
-    width: 20px;
-    height: 20px;
-    margin-right: 10px;
-}
-
-.finish-icon {
-    margin-left: auto; /* Aligns the finished image to the right */
-}
-
-.finish-icon img {
-    width: 20px;
-    height: 20px;
-}
+    <style>
+        * {
+            box-sizing: border-box;
+        }
         body {
-            font-family: Arial, sans-serif;
-            background-color: #000000;
             margin: 0;
-            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: rgb(55, 157, 148);
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            padding: 30px 20px;
         }
-
         .container {
-            margin: 0 auto;
-            padding: 10px;
-            width:90%;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background-color: #f8f9fa;
+            border-radius: 16px;
+            max-width: 900px;
+            width: 100%;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            padding: 30px 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
         }
-
         h1 {
             text-align: center;
-            padding: 10px;
-            color: #ffffff;
+            font-weight: 700;
+            font-size: 2.5rem;
+            color: rgb(55, 157, 148);
+            margin-bottom: 15px;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
         }
-        h2{
-            border:2px solid black;
-            border-radius:40px;
-            background-color:black;
-            color:white;
-            text-align:center;
+        .back-link {
+            display: inline-block;
+            color: rgb(55, 157, 148);
+            font-weight: 600;
+            text-decoration: none;
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+        .back-link:hover {
+            color: #720026;
+            text-decoration: underline;
         }
 
-        ul {
-            list-style-type: none;
+        ul.task-list {
+            list-style: none;
             padding: 0;
-            text-align:center;
+            margin: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        ul.task-list li {
+            background: #f9f9f9;
+            border-radius: 14px;
+            box-shadow: 0 15px 35px rgba(58, 12, 163, 0.1);
+            padding: 20px 25px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        ul.task-list li:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 25px 50px rgba(58, 12, 163, 0.2);
         }
 
-        li {
-            margin:10px;
-            padding: 20px;
-            width:40%;
-            height:auto;
-            text-align: left;
-            background-color: #f9f9f9;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            box-shadow: 0 26px 58px 0 rgba(0, 0, 0, .22), 0 5px 14px 0 rgba(0, 0, 0, .18);
-        }
-        hr{
-            height: 1px;
-  background: black;
-  border: none;
-  outline: none;
-  margin: 3em 3em 5em;
-  position: relative;
-  
-  &:before {
-    
-    content: attr(data-symbol);
-    position: absolute;
-    top: 0;
-    left: 50%;
-    background: black;
-    color: white;
-    padding: 0.5em 3em;
-    @include transform(translate(-50%, -50%));
-    
-  }
-
-        }
-        
-hr#two {
-  @include background-image(linear-gradient(left, black, white));
-  
-  &:before {
-    left: 90%;
-    width: 20%;
-    padding: 1em;
-    top: 1px;
-  }
-}
-
-        li:hover {
-            background-color: #e9e9e9;
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color :rgb(55, 157, 148);
+            border-bottom: 3px solid #720026;
+            padding-bottom: 6px;
+            border-radius: 6px 6px 0 0;
+            background-color: #e0d4f7;
+            text-align: center;
+            user-select: none;
         }
 
-        .task-details {
-            font-size: 16px;
-            margin-top: 10px;
-            color: #666;
+        p {
+            font-size: 1rem;
+            margin: 8px 0;
+            color: #555;
         }
-        
-    
+        p strong {
+            color: rgb(55, 157, 148);
+        }
 
-</style>
+        .task-details p {
+            color: #444;
+        }
+
+        hr#two {
+            border: none;
+            height: 1.5px;
+            background-color: rgb(55, 157, 148);
+            margin: 18px 0;
+            position: relative;
+        }
+        hr#two::before {
+            content: "✈";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #fff;
+            padding: 0 12px;
+            color: #720026;
+            font-weight: 900;
+            font-size: 1.3rem;
+            user-select: none;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            ul.task-list {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            ul.task-list li {
+                padding: 15px 20px;
+            }
+            h2 {
+                font-size: 1.3rem;
+            }
+            p {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
 <body>
-    <h1>Mô Tả Công Việc</h1>
-<div class="container">
-    <a href="{% url 'AdminDashboard' %}" class="back-link">
-        <i class="fas fa-arrow-left"></i> Quay lại bảng điều khiển
-    </a>
-    <ul class="task-list" style="display:block; width:100%;">
-        <!-- Inside your template -->
-        {% for employee in employees %}
-        <li style="display:inline-block;">
-            <h2>{{ employee.name }}</h2>
-            <p>Số lượng công việc: {{ employee.task_count }}</p>
-            <div class="task-details">
-                {% for task in employee.task_set.all %}
-                    {% csrf_token %}
-                    <!-- Pass the email as a hidden input field -->
-                    <input type="hidden" name="email" value="{{ employee.email }}">
-                    <p style="color:black;"><strong>Công việc:</strong> {{ task.title }}</p>
-                    <p  style="color:black;"><strong>Mô tả:</strong> {{ task.description }}</p>
-                    <p  style="color:black;"><strong>Hạn chót:</strong> {{ task.deadline_date }} {{ task.deadline_time }}</p>
-                    <hr id="two" data-symbol="✈">
-                {% endfor %}
-            </div>
-        </li>
-        {% endfor %}
-    </ul>
-</div>
-
+    <div class="container">
+        <h1>Mô Tả Công Việc</h1>
+        <a href="{% url 'AdminDashboard' %}" class="back-link">
+            ← Quay lại bảng điều khiển
+        </a>
+        <ul class="task-list">
+            {% for employee in employees %}
+            <li>
+                <h2>{{ employee.name }}</h2>
+                <p><strong>Số lượng công việc:</strong> {{ employee.task_count }}</p>
+                <div class="task-details">
+                    {% for task in employee.task_set.all %}
+                        {% csrf_token %}
+                        <input type="hidden" name="email" value="{{ employee.email }}">
+                        <p><strong>Công việc:</strong> {{ task.title }}</p>
+                        <p><strong>Mô tả:</strong> {{ task.description }}</p>
+                        <p><strong>Hạn chót:</strong> {{ task.deadline_date }} {{ task.deadline_time }}</p>
+                        <hr id="two" />
+                    {% endfor %}
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
 </body>
 </html>

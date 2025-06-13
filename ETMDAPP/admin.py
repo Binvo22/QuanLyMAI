@@ -2,50 +2,40 @@ from django.contrib import admin
 from .models import Task, FinishedTask, EmployeeSignUp, Department, Employee, Admin, Contact, TaskAssignment
 from .forms import DepartmentForm
 
-# Quản lý Admin
 class AdminAdmin(admin.ModelAdmin):
     list_display = ['email']
 
 admin.site.register(Admin, AdminAdmin)
 
-# Quản lý Employee
 @admin.register(Employee)
 class EmployeeAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'department', 'employee_id', 'address', 'contact_number',
                     'destination', 'date_of_birth', 'date_of_joining', 'email', 'designation', 'description')
 
-# Quản lý EmployeeSignUp (Đổi tên class để tránh xung đột)
 @admin.register(EmployeeSignUp)
 class EmployeeSignUpAdmin(admin.ModelAdmin):
     list_display = ('name', 'email')
-    # Customize admin interface as needed
 
-# Quản lý Department
 @admin.register(Department)
 class DepartmentAdmin(admin.ModelAdmin):
     form = DepartmentForm
 
-# Quản lý Contact
 @admin.register(Contact)
 class ContactAdmin(admin.ModelAdmin):
     list_display = ['first_name', 'last_name', 'email', 'mobile', 'message', 'created_at']
 
-# Quản lý Task
 @admin.register(Task)
 class TaskAdmin(admin.ModelAdmin):
     list_display = ['title', 'description', 'assigned_to_list', 'deadline_date', 'deadline_time', 'email', 'priority', 'category']
 
-    # Hàm hiển thị danh sách nhân viên được giao công việc
     def assigned_to_list(self, obj):
         return ", ".join([employee.name for employee in obj.assigned_to.all()])
     assigned_to_list.short_description = 'Nhân viên'
 
-# Quản lý FinishedTask
 @admin.register(FinishedTask)
 class FinishedTaskAdmin(admin.ModelAdmin):
     list_display = ['title', 'description', 'assigned_to_list', 'deadline_date', 'deadline_time', 'email', 'finished']
 
-    # Hàm hiển thị danh sách nhân viên được giao công việc
     def assigned_to_list(self, obj):
         return ", ".join([employee.name for employee in obj.assigned_to.all()])
     assigned_to_list.short_description = 'Nhân viên'

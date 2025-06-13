@@ -1,62 +1,133 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Danh sách công việc đã hoàn thành</title>
-    <link rel="stylesheet" href="/static/css/admindashboard.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+
+    <link rel="stylesheet" href="/static/css/admindashboard.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+
     <style>
         body {
-            background-color: #f5f6fa;
-            font-family: Arial, sans-serif;
+            background-color: rgb(55, 157, 148);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
         }
 
         .container {
             margin-left: 270px;
-            padding: 20px;
+            padding: 40px 30px;
+            max-width: 900px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color:rgb(255, 255, 255);
+            font-weight: 600;
+            text-decoration: none;
+            margin-bottom: 30px;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+        .back-link i {
+            margin-right: 8px;
+            font-size: 1.1rem;
+        }
+        .back-link:hover {
+            color:rgb(204, 222, 241);
+            text-decoration: underline;
         }
 
         .heading {
-            font-size: 24px;
-            margin-bottom: 20px;
-            color: #333;
-            font-weight: bold;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color:rgb(255, 255, 255);
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .heading i {
+            color: rgb(255, 255, 255);
+            font-size: 1.8rem;
         }
 
         .task-card {
-            background-color: white;
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-            transition: transform 0.2s;
+            background-color: #fff;
+            border-radius: 12px;
+            padding: 25px 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 25px  rgba(25, 131, 122, 0.15);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            cursor: default;
         }
 
         .task-card:hover {
-            transform: scale(1.01);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px  rgba(25, 113, 106, 0.17);
         }
 
         .task-title {
-            font-size: 18px;
-            font-weight: bold;
-            color: #2f3640;
-            margin-bottom: 8px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .task-title i {
+            color: rgb(55, 157, 148);
+            font-size: 1.4rem;
         }
 
         .task-info {
-            margin: 6px 0;
+            font-size: 1.05rem;
             color: #555;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+        .task-info strong {
+            color: #2c3e50;
+            font-weight: 600;
         }
 
-        .task-icon {
-            color: #4cd137;
-            margin-right: 8px;
+        .status {
+            font-weight: 700;
+            color: rgb(55, 157, 148);
+            font-size: 1.1rem;
+            margin-top: 10px;
         }
 
         .no-tasks {
             font-style: italic;
-            color: gray;
-            margin-top: 20px;
+            color: #999;
+            font-size: 1.2rem;
+            text-align: center;
+            margin-top: 50px;
+            user-select: none;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin-left: 20px;
+                margin-right: 20px;
+                padding: 20px;
+                max-width: 100%;
+            }
+            .task-card {
+                padding: 20px;
+            }
+            .task-title {
+                font-size: 1.3rem;
+            }
+            .task-info {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
@@ -66,24 +137,25 @@
     <a href="{% url 'AdminDashboard' %}" class="back-link">
         <i class="fas fa-arrow-left"></i> Quay lại bảng điều khiển
     </a>
-    <h2 class="heading"><i class="fa-solid fa-check-double"></i> Công việc đã hoàn thành</h2>
+
+    <h2 class="heading">
+        <i class="fa-solid fa-check-double"></i> Công việc đã hoàn thành
+    </h2>
 
     {% if finished_tasks %}
         {% for task in finished_tasks %}
-            <div class="task-card">
+            <div class="task-card" role="article" aria-label="Công việc {{ task.title }}">
                 <div class="task-title">
-                    <i class="fa-solid fa-tasks task-icon"></i> {{ task.title }}
+                    <i class="fa-solid fa-tasks"></i> {{ task.title }}
                 </div>
                 <div class="task-info"><strong>Mô tả:</strong> {{ task.description }}</div>
                 <div class="task-info"><strong>Deadline:</strong> {{ task.deadline_date }} lúc {{ task.deadline_time }}</div>
-                <div class="task-info"><strong>Email:</strong> {{ task.email }}</div>
-                <div class="task-info"><strong>Trạng thái:</strong> <span style="color:green;">Đã hoàn thành</span></div>
+                <div class="status">Đã hoàn thành</div>
             </div>
         {% endfor %}
     {% else %}
         <div class="no-tasks">Không có công việc nào đã hoàn thành.</div>
     {% endif %}
 </div>
-
 </body>
 </html>

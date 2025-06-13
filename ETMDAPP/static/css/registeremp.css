@@ -10,7 +10,6 @@
     width: 100vw;
     padding: 50px;
     background-color: #f8f9fa;
-    /* Light gray background */
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
@@ -21,7 +20,6 @@ h1 {
     font-size: 38px;
     font-weight: bolder;
     color: #000000;
-    /* Dark text color */
 }
 
 form {
@@ -32,13 +30,11 @@ form {
 .row {
     display: flex;
     margin-bottom: 40px;
-    /* Increased margin */
 }
 
 .col {
     flex: 1;
     margin-right: 40px;
-    /* Increased margin */
 }
 
 .col:last-child {
@@ -48,9 +44,7 @@ form {
 label {
     font-size: 18px;
     margin-bottom: 15px;
-    /* Increased margin */
     color: #555;
-    /* Medium gray text color */
 }
 
 input,
@@ -59,7 +53,6 @@ textarea {
     width: 100%;
     padding: 15px;
     border: 1px solid #ccc;
-    /* Light gray border */
     border-radius: 8px;
 }
 
@@ -79,14 +72,11 @@ button {
     border: none;
     border-radius: 8px;
     background-color: #007bff;
-    /* Blue button color */
     color: #fff;
-    /* White text color */
     font-size: 18px;
     cursor: pointer;
 }
 
 button:hover {
     background-color: #0056b3;
-    /* Darker blue color on hover */
 }
