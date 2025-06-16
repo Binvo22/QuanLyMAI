@@ -40,7 +40,7 @@ from django.db.models import Count
 from .models import Checkin
 from django.views.decorators.csrf import csrf_exempt
 
-def HOME(request):
+def home(request):
     return render(request,"home.html")
 
 def REGIEMP(request):
