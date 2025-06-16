@@ -59,6 +59,7 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
+APPEND_SLASH = True
 
 ROOT_URLCONF = "ETMD.urls"
 
