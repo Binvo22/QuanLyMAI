@@ -43,9 +43,6 @@ from django.views.decorators.csrf import csrf_exempt
 def HOME(request):
     return render(request,"HOME.html")
 
-def healthz(request):
-    return HttpResponse("OK")
-
 def REGIEMP(request):
     departments = Department.objects.all()
     if request.method == "POST":
