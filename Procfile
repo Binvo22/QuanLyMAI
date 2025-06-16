@@ -1,1 +1,1 @@
-web: gunicorn ETMD.wsgi
+web: gunicorn ETMD.wsgi:application
