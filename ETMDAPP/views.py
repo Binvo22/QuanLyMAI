@@ -41,7 +41,7 @@ from .models import Checkin
 from django.views.decorators.csrf import csrf_exempt
 
 def HOME(request):
-    return render(request,"HOME.html")
+    return render(request,"home.html")
 
 def REGIEMP(request):
     departments = Department.objects.all()
@@ -64,17 +64,17 @@ def REGIEMP(request):
                 emp.picture = request.FILES["pictureInput"]
 
             emp.save()
-            return render(request, "REGIEMP.html", {
+            return render(request, "regiemp.html", {
                 "success_message": "Thêm nhân viên thành công!",
                 "departments": departments
             })
         except Exception as e:
             print("Lỗi khi thêm nhân viên:", e)
-            return render(request, "REGIEMP.html", {
+            return render(request, "regiemp.html", {
                 "error_message": "Có lỗi xảy ra!",
                 "departments": departments
             })
-    return render(request, "REGIEMP.html", {"departments": departments})
+    return render(request, "regiemp.html", {"departments": departments})
 
 def employee_signup(request):
     if request.method == "POST":
@@ -130,7 +130,7 @@ def employee_login(request):
             request.session['employee_id'] = user.id
             request.session['employee_email'] = user.email
             request.session['employee_name'] = user.name
-            return redirect('EMPDashboard') 
+            return redirect('empdashboard') 
         else:
             return render(request, "login.html", {'error_message': "Email hoặc mật khẩu không đúng."})
     return render(request, "login.html")
@@ -142,7 +142,7 @@ def employee_logout(request):
         del request.session['employee_name']
     except KeyError:
         pass
-    return redirect('HOME')
+    return redirect('home')
 
 def employee_list(request):
     try:
@@ -180,13 +180,13 @@ def edit_employee(request, pk):
         form = EmployeeForm(request.POST, request.FILES, instance=employee)
         if form.is_valid():
             form.save()
-            return redirect('AdminDashboard')
+            return redirect('admindashboard')
     else:
         form = EmployeeForm(instance=employee)
     return render(request, 'editemp.html', {'form': form})
 
 def ABOUT(request):
-    return render(request, "ABOUT.html")
+    return render(request, "about.html")
 
 def EMPDASHBOARD(request):
     try:
@@ -211,7 +211,7 @@ def EMPDASHBOARD(request):
             assigned_to=employee,
             finished=True
         ).count()
-        return render(request, "EMPDashboard.html", {
+        return render(request, "empdashboard.html", {
             'total_tasks': total_tasks,
             'just_started_tasks': just_started_tasks,
             'in_progress_tasks': in_progress_tasks,
@@ -225,9 +225,6 @@ def EMPDASHBOARD(request):
         return render(request, "error.html", {
             'error_message': f"An unexpected error occurred: {str(e)}"
         })
-
-def REGIDMENT(request):
-    return render(request, "REGIDMENT.html")
  
 def ADMINLOGIN(request):
     if request.method == "POST":
@@ -240,7 +237,7 @@ def ADMINLOGIN(request):
         if check_password(password, admin.password):
             request.session['admin_email'] = admin.email
             total_employees = Employee.objects.count()
-            return redirect("AdminDashboard")
+            return redirect("admindashboard")
         else:
             return render(request, "adminlogin.html", {"error_message": "Invalid credentials"})
     admin_email = request.session.get('admin_email', None)
@@ -250,12 +247,12 @@ def AdminDashboard(request):
     try:
         admin_email = request.session.get('admin_email', None)
         if admin_email is None:
-            return redirect('ADMINLOGIN')
+            return redirect('adminlogin')
         total_employees = Employee.objects.count()
         total_departments = Department.objects.count()
         finished_tasks_count = FinishedTask.objects.count()
         assigned_tasks_count = Task.objects.count()
-        return render(request, "AdminDashboard.html", {
+        return render(request, "admindashboard.html", {
             'total_employees': total_employees,
             'total_departments': total_departments,
             'finished_tasks_count': finished_tasks_count,
@@ -270,15 +267,15 @@ def REGIDMENT(request):
     try:
         admin_email = request.session.get('admin_email', None)
         if admin_email is None:
-            return redirect('ADMINLOGIN')
+            return redirect('adminlogin')
         if request.method == 'POST':
             form = DepartmentForm(request.POST)
             if form.is_valid():
                 form.save()
-                return redirect('AdminDashboard')
+                return redirect('admindashboard')
         else:
             form = DepartmentForm()
-        return render(request, 'REGIDMENT.html', {'form': form, 'admin_email': admin_email})
+        return render(request, 'regidment.html', {'form': form, 'admin_email': admin_email})
     except Exception as e:
         error_message = "An error occurred while processing department registration."
         return render(request, "error.html", {'error_message': error_message})
@@ -290,7 +287,7 @@ def department_list(request):
         'departments': departments,
         'total_departments': total_departments
     }
-    return render(request, 'Dlist.html', context)
+    return render(request, 'dlist.html', context)
 
 def edit_department(request, department_id):
     department = get_object_or_404(Department, pk=department_id)
@@ -308,13 +305,13 @@ def delete_department(request, department_id):
     if request.method == 'POST':
         department.delete()
         return redirect('department_list')
-    return render(request, 'AdminDashboard', {'department': department})
+    return render(request, 'admindashboard', {'department': department})
 
 def search_department(request):
     if request.method == 'POST':
         name = request.POST.get('name', '')
         departments = Department.objects.filter(name__icontains=name)
-        return render(request, 'Dlist.html', {'departments': departments})
+        return render(request, 'dlist.html', {'departments': departments})
     else:
         return render(request, 'department_search_results.html')
 
@@ -324,10 +321,10 @@ def CONTACT(request):
             form = ContactForm(request.POST)
             if form.is_valid():
                 form.save()
-                return redirect('HOME')
+                return redirect('home')
         else:
             form = ContactForm()
-        return render(request, 'CONTACT.html', {'form': form})
+        return render(request, 'contact.html', {'form': form})
     except Exception as e:
         error_message = "An error occurred while processing the contact form."
         return render(request, "error.html", {'error_message': error_message})
@@ -354,7 +351,7 @@ def assign_task(request):
 def task_des(request):
     employees_with_tasks = Employee.objects.filter(
         task__isnull=False).distinct().annotate(task_count=Count('task'))
-    return render(request, 'TaskDes.html', {'employees': employees_with_tasks})
+    return render(request, 'taskdes.html', {'employees': employees_with_tasks})
 
 def assigned_tasks(request):
     employee_data = []
@@ -373,7 +370,7 @@ def assigned_tasks(request):
             'employee': emp,
             'tasks': task_list
         })
-    return render(request, 'AssignTasks.html', {'employee_data': employee_data})
+    return render(request, 'assigntasks.html', {'employee_data': employee_data})
 
 def TaskReport(request):
     generate_task_distribution_plot()
@@ -390,7 +387,7 @@ def TaskReport(request):
     context = {
         'deadlines_data': deadlines_data
     }
-    return render(request, 'TaskReport.html', context)
+    return render(request, 'taskreport.html', context)
 
 def mark_task_finished(request, task_id, email):
     if request.method == 'POST':
@@ -406,19 +403,17 @@ def mark_task_finished(request, task_id, email):
         finished_task.assigned_to.set(task.assigned_to.all())
         finished_task.save()
         task.delete()
-        return redirect('AdminDashboard')
+        return redirect('admindashboard')
     else:
         pass
 
 def DEV(request):
-    return render(request, "Developers.html")
+    return render(request, "developers.html")
 
 def task_end_dates(request):
     tasks = Task.objects.all()
     return render(request, 'taskenddate.html', {'tasks': tasks})
 
-def EMPAccount(request):
-    return render(request,"EMPAccount.html")
 
 def TaskDashboard(request):
     email = request.session.get("EmployeeEmail")
@@ -439,7 +434,7 @@ def TaskDashboard(request):
         'total_tasks': NoOfTasks,
         'performance_rate': performance_rate,
     }
-    return render(request, "EMPTaskDashboard.html", context)
+    return render(request, "emptaskdashboard.html", context)
 
 def EMPTaskEndDate(request):
     try:
@@ -448,7 +443,7 @@ def EMPTaskEndDate(request):
             tasks = Task.objects.filter(email=email)
         else:
             tasks = []
-        return render(request, 'EMPTaskEndDate.html', {'tasks': tasks})
+        return render(request, 'emptaskenddate.html', {'tasks': tasks})
     except Exception as e:
         error_message = "An error occurred while loading the employee tasks."
         return render(request, "error.html", {'error_message': error_message})
@@ -461,7 +456,7 @@ def EmployeeTask(request):
             tasks = Task.objects.filter(emails__contains=email)
         else:
             tasks = []
-        return render(request, 'EmployeeTask.html', {'email': email, 'tasks': tasks, 'username': username})
+        return render(request, 'employeetask.html', {'email': email, 'tasks': tasks, 'username': username})
     except Exception as e:
         print("=== LỖI DASHBOARD ===")  
         print(e)
@@ -541,7 +536,7 @@ def timesheet_view(request):
     url = 'https://docs.google.com/spreadsheets/d/1hRBixIYOX5_oaXOawR16OFmsI1UBIYNqgs30GoPJja0/export?format=xlsx'
     response = requests.get(url)
     if response.status_code != 200:
-        return render(request, 'Chamcong.html', {'error': 'Không tải được file Excel từ Google Sheets'})
+        return render(request, 'chamcong.html', {'error': 'Không tải được file Excel từ Google Sheets'})
     file_bytes = BytesIO(response.content)
     try:
         xls = pd.ExcelFile(file_bytes)
@@ -567,9 +562,9 @@ def timesheet_view(request):
             'table': table_html,
             'report_date': report_date,
         }
-        return render(request, 'Chamcong.html', context)
+        return render(request, 'chamcong.html', context)
     except Exception as e:
-        return render(request, 'Chamcong.html', {'error': f'Lỗi khi đọc file Excel: {str(e)}'})
+        return render(request, 'chamcong.html', {'error': f'Lỗi khi đọc file Excel: {str(e)}'})
 
 def employee_profile(request):
     employee_email = request.session.get('employee_email')
