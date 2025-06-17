@@ -1,176 +1,44 @@
+<!-- filepath: c:\Binduphong\ETMDAPP\templates\admindashboard.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bảng Điều Khiển Quản Trị </title>
+    <title>Bảng Điều Khiển Quản Trị</title>
     <link rel="stylesheet" href="/static/css/admindashboard.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
 </head>
 <body>
-
-    <section>
-
-    <div class="sidebar close">
-      <div class="logo">
-        <img src="/static/IMAGES/mono.jpg" alt="Logo" class="logo-img">
-        <span class="logo-name">Hệ Thống</span>
-      </div>
-
-      <ul class="nav-list">
-        <li>
-          <ul class="sub-menu blank">
-            <li><a href="#" class="link-name">Bảng điều khiển</a></li>
-          </ul>
-        </li>
-
-        <li>
-          <div class="icon-link">
-            <a href="#">
-                <i class="fa-regular fa-building"></i>
-              <span class="link-name">Phòng ban</span>
-            </a>
-            <i class="fas fa-caret-down arrow"></i>
-          </div>
-
-          <ul class="sub-menu">
-            <li><a href="#" class="link-name">Phòng ban</a></li>
-            <li><a href={% url "regidment" %}>Thêm Phòng Ban</a></li>
-          </ul>
-        </li>
-
-        <li>
-          <div class="icon-link">
-            <a href="#">
-                <i class="fa-regular fa-circle-user"></i>
-              <span class="link-name">Nhân viên</span>
-            </a>
-            <i class="fas fa-caret-down arrow"></i>
-          </div>
-
-          <ul class="sub-menu">
-            <li><a href="#" class="link-name">Nhân viên</a></li>
-            <li><a href={% url "regiemp" %}>Thêm Nhân viên</a></li>
-          </ul>
-        </li>
-
-
-        <li>
-          <div class="icon-link" >
-          <a href="#">
-            <i class="fa-solid fa-list-check"></i>
-            <span class="link-name">Công việc</span>
-          </a>
-          <i class="fas fa-caret-down arrow"></i>
-          </div>
-           
-          <ul class="sub-menu">
-            <a href="#">
-              <span class="link-name">Công việc</span>
-            </a>
-            <li><a href="{% url "task_des" %}" >Mô tả công việc </a></li>
-            <li><a href={% url "Task" %} >Giao việc</a></li>
-            <li><a href={% url "assigned_tasks" %} >Tiến độ công việc</a></li>
-            <li><a href={% url "task_end_dates" %} >Ngày kết thúc công việc</a></li>
-          </ul>
-        </li>
-
-        <li>
-          <div class="icon-link">
-            <a href="#">
-              <i class="fas fa-laptop-code"></i>
-              <span class="link-name">Quản lý</span>
-            </a>
-            <i class="fas fa-caret-down arrow"></i>
-          </div>
-
-          <ul class="sub-menu">
-            <li><a href="#" class="link-name">Quản lý</a></li>
-            <li><a href={% url "employee_list" %}>Quản lý nhân viên</a></li>
-            <li><a href={% url "dlist" %}>Quản lý phòng ban</a></li>
-            <li><a href={% url "finished_tasks" %}>Công việc đã hoàn thành</a></li>
-            <li><a href={% url "chamcong" %}>chấm công</a></li>
-            <li><a href={% url "checkin_list" %}>Nhân viên chấm công</a></li>
-          </ul>
-        </li>
-
-        <li>
-          <div class="profile-details">
-            <div class="profile-content">
-            </div>
-            <div class="name-job">
-                <div class="name">Quản trị viên</div>
-                <div class="job">{{ request.session.admin_email }}</div>
-            </div>
-            <a href="{% url 'logout' %}" style="background-color:white;">
-              <i class="fas fa-right-to-bracket" style="color: black;"></i>
-            </a>
-          </div>
-        </li>
-      </ul>
-    </div>
-    <div class="home-section">
-      <div class="home-content">
-        <i class="fas fa-bars"></i>
-        <span class="text">Bảng Điều Khiển</span>
-      </div>
-    </div>
-            <div class="dashboard">
-                <h2 class="heading">Bảng điều khiển dành cho quản trị viên </h2>
-                <div class="color-box">
-                    <div class="box pink">
-                        <p> <i class="fa fa-building-o" aria-hidden="true"></i> </p>
-                        <p> Tổng số phòng ban </p>
-                        <h3> {{ total_departments }}</h3>
-                    </div>
-                    <div class="box orange">
-                        <p> <i class="fa fa-users" aria-hidden="true"></i> </p>
-                        <p> Tổng số nhân viên </p>
-                        <h3>{{ total_employees }} </h3>
-                    </div>
-                    <div class="box green">
-                        <p> <i class="fa fa-area-chart" aria-hidden="true"></i> </p>
-                        <p> Công việc đang xử lý </p>
-                        <h3> {{assigned_tasks_count}}</h3>
-                    </div>
-                    <div class="box blue">
-                        <p> <i class="fa fa-tasks" aria-hidden="true"></i> </p>
-                        <p> Công việc đã hoàn thành </p>
-                        <h3>{{finished_tasks_count}}</h3>
-                    </div>
+    {% include 'base_nav.html' %}
+    <div class="main-content">
+        <div class="dashboard">
+            <h2 class="heading">Bảng điều khiển dành cho quản trị viên</h2>
+            <div class="color-box">
+                <div class="box pink">
+                    <i class="fa fa-building-o" aria-hidden="true"></i>
+                    <p>Tổng số phòng ban</p>
+                    <h3>{{ total_departments }}</h3>
+                </div>
+                <div class="box orange">
+                    <i class="fa fa-users" aria-hidden="true"></i>
+                    <p>Tổng số nhân viên</p>
+                    <h3>{{ total_employees }}</h3>
+                </div>
+                <div class="box green">
+                    <i class="fa fa-area-chart" aria-hidden="true"></i>
+                    <p>Công việc đang xử lý</p>
+                    <h3>{{ assigned_tasks_count }}</h3>
+                </div>
+                <div class="box blue">
+                    <i class="fa fa-tasks" aria-hidden="true"></i>
+                    <p>Công việc đã hoàn thành</p>
+                    <h3>{{ finished_tasks_count }}</h3>
                 </div>
             </div>
         </div>
-    </section>
-
+    </div>
 </body>
-<script>
-  
-let btn = document.querySelector(".fa-bars");
-let sidebar = document.querySelector(".sidebar");
-
-btn.addEventListener("click", () => {
-  sidebar.classList.toggle("close");
-});
-
-let arrows = document.querySelectorAll(".arrow");
-for (var i = 0; i < arrows.length; i++) {
-  arrows[i].addEventListener("click", (e) => {
-    let arrowParent = e.target.parentElement.parentElement;
-
-    arrowParent.classList.toggle("show");
-  });
-}
-    const hamburger = document.getElementById('menu');
-    const navigation = document.getElementById('navigation');
-    hamburger.addEventListener('click', function () {
-        navigation.classList.toggle('active')
-        console.log('clicked');
-    })
-</script>
-
 </html>

@@ -1,0 +1,104 @@
+<!-- filepath: c:\Binduphong\ETMDAPP\templates\base_nav.html -->
+<nav class="top-navbar">
+    <div class="nav-logo">
+        <a href="{% url 'admindashboard' %}">
+            <img src="/static/IMAGES/mono.jpg" alt="Logo">
+        </a>
+        <span class="logo-name">MAI</span>
+    </div>
+    <ul class="nav-links">
+      <li class="has-dropdown {% if request.resolver_match.url_name == 'regidment' %}active{% endif %}">
+          <a href="#">Phòng ban <i class="fas fa-caret-down"></i></a>
+          <ul class="dropdown">
+              <li>
+                <a href="{% url 'regidment' %}" {% if request.resolver_match.url_name == 'regidment' %}class="active"{% endif %}>
+                  Thêm Phòng Ban
+                </a>
+              </li>
+          </ul>
+      </li>
+      <li class="has-dropdown {% if request.resolver_match.url_name == 'regiemp' %}active{% endif %}">
+          <a href="#">Nhân viên <i class="fas fa-caret-down"></i></a>
+          <ul class="dropdown">
+              <li>
+                <a href="{% url 'regiemp' %}" {% if request.resolver_match.url_name == 'regiemp' %}class="active"{% endif %}>
+                  Thêm Nhân viên
+                </a>
+              </li>
+          </ul>
+      </li>
+      <li class="has-dropdown {% if request.resolver_match.url_name in 'task_des Task assigned_tasks task_end_dates' %}active{% endif %}">
+          <a href="#">Công việc <i class="fas fa-caret-down"></i></a>
+          <ul class="dropdown">
+              <li>
+                <a href="{% url 'task_des' %}" {% if request.resolver_match.url_name == 'task_des' %}class="active"{% endif %}>
+                  Mô tả công việc
+                </a>
+              </li>
+              <li>
+                <a href="{% url 'Task' %}" {% if request.resolver_match.url_name == 'Task' %}class="active"{% endif %}>
+                  Giao việc
+                </a>
+              </li>
+              <li>
+                <a href="{% url 'assigned_tasks' %}" {% if request.resolver_match.url_name == 'assigned_tasks' %}class="active"{% endif %}>
+                  Công việc được giao
+                </a>
+              </li>
+              <li>
+                <a href="{% url 'task_end_dates' %}" {% if request.resolver_match.url_name == 'task_end_dates' %}class="active"{% endif %}>
+                  Ngày kết thúc công việc
+                </a>
+              </li>
+          </ul>
+      </li>
+      <li class="has-dropdown {% if request.resolver_match.url_name in 'employee_list dlist finished_tasks chamcong checkin_list' %}active{% endif %}">
+          <a href="#">Quản lý <i class="fas fa-caret-down"></i></a>
+          <ul class="dropdown">
+              <li>
+                <a href="{% url 'employee_list' %}" {% if request.resolver_match.url_name == 'employee_list' %}class="active"{% endif %}>
+                  Quản lý nhân viên
+                </a>
+              </li>
+              <li>
+                <a href="{% url 'dlist' %}" {% if request.resolver_match.url_name == 'dlist' %}class="active"{% endif %}>
+                  Quản lý phòng ban
+                </a>
+              </li>
+              <li>
+                <a href="{% url 'finished_tasks' %}" {% if request.resolver_match.url_name == 'finished_tasks' %}class="active"{% endif %}>
+                  Công việc đã hoàn thành
+                </a>
+              </li>
+              <li>
+                <a href="{% url 'chamcong' %}" {% if request.resolver_match.url_name == 'chamcong' %}class="active"{% endif %}>
+                  Chấm công
+                </a>
+              </li>
+              <li>
+                <a href="{% url 'checkin_list' %}" {% if request.resolver_match.url_name == 'checkin_list' %}class="active"{% endif %}>
+                  Nhân viên chấm công
+                </a>
+              </li>
+          </ul>
+      </li>
+    </ul>
+    <div class="nav-profile">
+        <img src="/static/IMAGES/mono.jpg" alt="Admin">
+        <div>
+            <span class="name">Quản trị viên</span>
+            <span class="email">{{ request.session.admin_email }}</span>
+        </div>
+        <a href="{% url 'logout' %}" class="logout-btn"><i class="fas fa-right-to-bracket"></i></a>
+    </div>
+</nav>
+<script>
+document.querySelectorAll('.has-dropdown').forEach(function(item) {
+    item.addEventListener('mouseenter', function() {
+        this.classList.add('show-dropdown');
+    });
+    item.addEventListener('mouseleave', function() {
+        this.classList.remove('show-dropdown');
+    });
+});
+</script>

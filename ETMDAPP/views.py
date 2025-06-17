@@ -646,7 +646,7 @@ def check_in_view(request):
         messages.success(request, "Bạn đã chấm công thành công!")
         return redirect('checkin')
     return render(request, 'checkin.html', {'employee': employee})
-
+    
 
 def checkin_list(request):
     checkins = Checkin.objects.select_related('employee').order_by('-check_in_time')

@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600&display=swap');
+
+.top-navbar {
+  width: 100vw;                /* Luôn phủ toàn bộ chiều ngang màn hình */
+  left: 0;
+  top: 0;
+  position: fixed;
+  z-index: 999;
+  background: linear-gradient(90deg, #3bb7a7 0%, #4fd1c5 100%);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 32px;
+  height: 70px;
+  box-shadow: 0 2px 12px rgba(55,157,148,0.08);
+  gap: 32px;
+}
+
+body {
+  padding-top: 70px; /* Đẩy toàn bộ nội dung xuống dưới menu, tránh bị che */
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-right: 26px;
+}
+
+.nav-logo img {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid #fff;
+}
+
+.logo-name {
+    color: #fff;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links > li {
+    position: relative;
+}
+
+.nav-links > li > a {
+    color: #fff;
+    font-size: 17px;
+    font-weight: 500;
+    padding: 10px 16px;
+    border-radius: 8px;
+    transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.nav-links > li > a:hover,
+.nav-links > li.active > a {
+    background: rgba(255,255,255,0.13);
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    min-width: 180px;
+    box-shadow: 0 4px 24px rgba(55,157,148,0.10);
+    border-radius: 10px;
+    padding: 8px 0;
+    z-index: 100;
+    margin-top: 0;
+}
+
+.dropdown li a {
+    color: #249688;
+    padding: 10px 18px;
+    display: block;
+    font-size: 15px;
+    border-radius: 6px;
+    transition: background 0.2s, color 0.2s;
+}
+
+.dropdown li a:hover {
+    background: #e0eafc;
+    color: #222;
+}
+
+.has-dropdown .dropdown {
+    display: none;
+}
+.has-dropdown.show-dropdown .dropdown {
+    display: block;
+    pointer-events: auto;
+}
+
+.nav-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #fff;
+    border-radius: 16px;
+    padding: 6px 16px 6px 6px;
+    box-shadow: 0 2px 8px rgba(55,157,148,0.07);
+    margin-left: auto;
+    margin-right: 35px;
+}
+
+.nav-profile img {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 2px solid #249688;
+    object-fit: cover;
+}
+
+.nav-profile .name {
+    color: #249688;
+    font-weight: 700;
+    font-size: 15px;
+    display: block;
+}
+
+.nav-profile .email {
+    color: #888;
+    font-size: 12px;
+    display: block;
+}
+
+.logout-btn {
+  background: #eafaf7;
+  border-radius: 50%;
+  padding: 7px;
+  margin-left: 8px;
+  color: #249688;
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px; /* Đảm bảo icon đủ lớn */
+  border: none;
+  outline: none;
+}
+
+.logout-btn:hover {
+    background: #4fd1c5;
+    color: #fff;
+}
+
+.nav-links,
+.nav-links ul,
+.dropdown {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.nav-links a,
+.dropdown a {
+    text-decoration: none;
+}
+
+@media (max-width: 900px) {
+    .top-navbar {
+        flex-direction: column;
+        height: auto;
+        padding: 10px 8px;
+        align-items: flex-start;
+    }
+    .nav-links {
+        gap: 10px;
+        margin-top: 8px;
+    }
+    .nav-profile {
+        margin-top: 8px;
+    }
+}

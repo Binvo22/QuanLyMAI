@@ -4,160 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Thêm Phòng Ban</title>
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: rgb(55, 157, 148);
-      color: #333;
-      line-height: 1.6;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-    }
-
-    .container {
-      background: #f8f9fa;
-      border-radius: 12px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-      max-width: 900px;
-      width: 100%;
-      padding: 40px 50px;
-      transition: box-shadow 0.3s ease;
-    }
-
-    .container:hover {
-      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.15);
-    }
-
-    h1 {
-      margin-bottom: 30px;
-      font-weight: 700;
-      font-size: 2.5rem;
-      color: #222;
-      text-align: center;
-      letter-spacing: 1.2px;
-    }
-
-    form {
-      display: flex;
-      gap: 40px;
-      flex-wrap: wrap;
-    }
-
-    .form-column {
-      flex: 1 1 45%;
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-    }
-
-    label {
-      font-weight: 600;
-      font-size: 1rem;
-      color: #444;
-      user-select: none;
-    }
-
-    input[type="text"],
-    textarea {
-      padding: 12px 15px;
-      border: 1.8px solid #ccc;
-      border-radius: 8px;
-      font-size: 1rem;
-      transition: border-color 0.3s ease, box-shadow 0.3s ease;
-      resize: vertical;
-      min-height: 38px;
-      font-family: inherit;
-    }
-
-    input[type="text"]:focus,
-    textarea:focus {
-      outline: none;
-      border-color: #007bff;
-      box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
-      background-color: #fff;
-    }
-
-    textarea {
-      min-height: 100px;
-      font-size: 1rem;
-    }
-
-    .button-wrapper {
-      flex-basis: 100%;
-      margin-top: 30px;
-      display: flex;
-      justify-content: flex-end;
-      gap: 15px;
-    }
-
-    button {
-      padding: 12px 28px;
-      border: none;
-      border-radius: 8px;
-      background-color: #007bff;
-      color: #fff;
-      font-size: 1.1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background-color 0.3s ease, transform 0.2s ease;
-      box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
-    }
-
-    button:hover {
-      background-color: #0056b3;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 14px rgba(0, 86, 179, 0.5);
-    }
-
-    button[type="reset"] {
-      background-color: #6c757d;
-      box-shadow: 0 4px 10px rgba(108, 117, 125, 0.3);
-    }
-
-    button[type="reset"]:hover {
-      background-color: #565e64;
-      box-shadow: 0 6px 14px rgba(86, 94, 100, 0.5);
-    }
-
-    .back-link {
-      display: inline-block;
-      margin-top: 30px;
-      color: #007bff;
-      font-weight: 600;
-      text-decoration: none;
-      font-size: 1rem;
-      transition: color 0.3s ease;
-      user-select: none;
-    }
-
-    .back-link:hover {
-      color: #0056b3;
-      text-decoration: underline;
-    }
-
-    /* Responsive */
-    @media (max-width: 720px) {
-      form {
-        flex-direction: column;
-      }
-      .form-column {
-        flex-basis: 100%;
-      }
-      .button-wrapper {
-        justify-content: center;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="/static/css/regidment.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+  <link rel="stylesheet" href="/static/css/menu.css">
 </head>
 <body>
+  {% include 'base_nav.html' %}
   <div class="container">
     <h1>Thêm Phòng Ban</h1>
     <form action="" method="POST" novalidate>
@@ -181,9 +33,6 @@
         <button type="submit">Gửi</button>
       </div>
     </form>
-    <a href="{% url 'admindashboard' %}" class="back-link" aria-label="Quay lại bảng điều khiển">
-      &larr; Quay lại bảng điều khiển
-    </a>
   </div>
 </body>
 </html>
