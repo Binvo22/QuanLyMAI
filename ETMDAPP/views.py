@@ -230,18 +230,21 @@ def ADMINLOGIN(request):
     if request.method == "POST":
         admin_email = request.POST.get("email")
         password = request.POST.get("password")
+        print("Email:", admin_email, "Password:", password)
         try:
             admin = Admin.objects.get(email=admin_email)
+            print("Admin found:", admin)
         except Admin.DoesNotExist:
+            print("Admin not found")
             return render(request, "adminlogin.html", {"error_message": "Admin not found"})
-        if check_password(password, admin.password):
+        if password == admin.password:
+            print("Login success")
             request.session['admin_email'] = admin.email
-            total_employees = Employee.objects.count()
             return redirect("admindashboard")
         else:
+            print("Invalid credentials")
             return render(request, "adminlogin.html", {"error_message": "Invalid credentials"})
-    admin_email = request.session.get('admin_email', None)
-    return render(request, "adminlogin.html", {"admin_email": admin_email})
+    return render(request, "adminlogin.html")
 
 def AdminDashboard(request):
     try:
