@@ -8,7 +8,7 @@ from django.core.exceptions import ValidationError
 class EmployeeForm(forms.ModelForm):
     class Meta:
         model = Employee
-        fields = '__all__'
+        exclude = ['account']
 
 class DepartmentForm(forms.ModelForm):
     class Meta:
