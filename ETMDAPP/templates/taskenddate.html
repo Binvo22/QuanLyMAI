@@ -6,120 +6,13 @@
     <title>Ngày Kết Thúc Công Việc</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
-
-    <style>
-        body {
-            color: #343a40;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: rgb(55, 157, 148);
-            padding-top: 40px;
-            padding-bottom: 40px;
-        }
-
-        .container {
-            max-width: 900px;
-            background-color: #f8f9fa;
-            border-radius: 12px;
-            padding: 35px 40px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-        }
-
-        .back-link {
-            color:rgb(0, 0, 0);
-            font-weight: 600;
-            text-decoration: none;
-            margin-bottom: 25px;
-            display: inline-block;
-            transition: color 0.3s ease;
-        }
-        .back-link:hover {
-            color:rgb(0, 0, 0);
-            text-decoration: underline;
-        }
-
-        h1 {
-            font-size: 2.8rem;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 40px;
-            color:rgb(0, 0, 0);
-        }
-
-        .task-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .task-item {
-            background: #e9f0fe;
-            border-radius: 12px;
-            padding: 20px 25px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 8px rgba(0, 123, 255, 0.15);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .task-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 20px rgba(0, 123, 255, 0.25);
-        }
-
-        .task-icon {
-            font-size: 38px;
-            color:rgb(0, 0, 0);
-            margin-right: 15px;
-            flex-shrink: 0;
-        }
-
-        .task-content h2 {
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin-bottom: 5px;
-            color: #212529;
-        }
-
-        .task-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: #343a40;
-            margin-bottom: 8px;
-        }
-
-        .end-date {
-            font-size: 1rem;
-            color: #495057;
-            font-weight: 500;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(15px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .task-item {
-            animation: fadeInUp 0.5s ease forwards;
-            opacity: 0;
-        }
-
-        .task-item:nth-child(1) { animation-delay: 0.1s; }
-        .task-item:nth-child(2) { animation-delay: 0.2s; }
-        .task-item:nth-child(3) { animation-delay: 0.3s; }
-        .task-item:nth-child(4) { animation-delay: 0.4s; }
-        .task-item:nth-child(5) { animation-delay: 0.5s; }
-    </style>
+    <link rel="stylesheet" href="/static/css/taskenddate.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/menu.css">
 </head>
 <body>
+    {% include 'base_nav.html' %}
     <div class="container">
-        <a href="{% url 'admindashboard' %}" class="back-link">
-            <i class="fas fa-arrow-left"></i> Quay lại bảng điều khiển
-        </a>
         <h1>Ngày Kết Thúc Công Việc</h1>
         <ul class="task-list">
             {% for task in tasks %}

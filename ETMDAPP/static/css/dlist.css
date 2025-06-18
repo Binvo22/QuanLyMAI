@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600&display=swap');
+
+body {
+    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+    color: #222;
+    min-height: 100vh;
+}
+
+h1 {
+    text-align: center;
+    margin-top: -20px;
+    font-size: 2.2rem;
+    color: #3bb7a7;
+    text-shadow: 2px 2px 8px rgba(36,150,136,0.13);
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 30px auto 0 auto; 
+    background-color: rgba(255, 255, 255, 0.97);
+    padding: 28px 18px 24px 18px;
+    border-radius: 18px;
+    box-shadow: 0 0 24px rgba(55,157,148,0.13);
+}
+
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: none;
+}
+
+th, td {
+    padding: 10px 8px;
+    text-align: left;
+    border-bottom: 1px solid #e0eafc;
+}
+
+th {
+    background-color: #e0eafc;
+    font-weight: 600;
+    color: #249688;
+    font-size: 1rem;
+}
+
+td {
+    font-weight: 400;
+    color: #444;
+    font-size: 0.98rem;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+.search-container input[type=text] {
+    width: 220px;
+    padding: 10px;
+    border: 1.5px solid #cfdef3;
+    border-radius: 6px;
+    font-size: 1rem;
+    background-color: #f8fafc;
+    transition: background-color 0.3s, box-shadow 0.3s, border-color 0.3s;
+    margin-right: 6px;
+}
+
+.search-container input[type=text]:focus {
+    outline: none;
+    background-color: #fff;
+    border-color: #249688;
+    box-shadow: 0 0 10px rgba(36,150,136,0.10);
+}
+
+.search-container button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    background: linear-gradient(90deg, #249688 60%, #4fd1c5 100%);
+    color: #fff;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: background 0.3s, transform 0.15s;
+}
+
+.search-container button:hover {
+    background: linear-gradient(90deg, #3bb7a7 60%, #249688 100%);
+    transform: translateY(-2px) scale(1.04);
+}
+
+.edit-icon, .delete-icon {
+    color: #249688;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: color 0.3s;
+    font-size: 1.15rem;
+}
+
+.edit-icon:hover {
+    color: #4fd1c5;
+}
+
+.delete-icon:hover {
+    color: #e74c3c;
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 18px;
+    color: #249688;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s;
+    font-size: 1.05rem;
+}
+
+.back-link:hover {
+    color: #3bb7a7;
+    text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+    .container {
+        width: 99%;
+        padding: 12px 2px 10px 2px;
+    }
+    th, td {
+        padding: 7px 4px;
+        font-size: 0.95rem;
+    }
+    .search-container input[type=text] {
+        width: 120px;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.2rem;
+    }
+    .container {
+        padding: 6px 1px 6px 1px;
+    }
+    .search-container {
+        flex-direction: column;
+        gap: 6px;
+    }
+    .search-container input[type=text] {
+        width: 100%;
+        margin-right: 0;
+    }
+    .search-container button {
+        width: 100%;
+    }
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+    thead tr {
+        display: none;
+    }
+    tr {
+        margin-bottom: 18px;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(55,157,148,0.10);
+        background: #fff;
+        padding: 8px 0;
+    }
+    td {
+        padding: 8px 10px;
+        text-align: right;
+        position: relative;
+    }
+    td:before {
+        content: attr(data-label);
+        float: left;
+        color: #249688;
+        font-weight: 600;
+        font-size: 0.98rem;
+    }
+}

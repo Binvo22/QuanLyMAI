@@ -1,0 +1,76 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+    margin: 30px auto;
+    padding: 20px;
+    color: #333;
+}
+
+h1 {
+    color: #3bb7a7;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 25px 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+p {
+    font-size: 16px;
+    margin: 15px 0;
+    text-align: center;
+}
+
+#status {
+    font-weight: 600;
+    color: #16a085;
+    margin-bottom: 20px;
+}
+
+button {
+    display: block;
+    width: 100%;
+    background-color: #3bb7a7;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+}
+
+button:not(:disabled):hover {
+  background-color:#4fd1c5 ;
+}
+
+.back-link {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    color: #2980b9;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+ul.messages {
+    max-width: 400px;
+    margin: 20px auto 0;
+    padding: 0;
+    list-style-type: none;
+    color: #e74c3c;
+    font-weight: 600;
+    text-align: center;
+}

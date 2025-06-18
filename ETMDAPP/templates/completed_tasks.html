@@ -4,9 +4,12 @@
   <meta charset="UTF-8">
   <title>Công việc đã hoàn thành</title>
   <link rel="stylesheet" href="/static/css/completed_tasks.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="/static/css/menu.css">
 </head>
 <body>
-  <div class="container">
+  {% include 'menu2.html' %}
+  <div class="completed-page">
     <h2>Công việc đã hoàn thành</h2>
     {% if finished_tasks %}
       <table>
@@ -32,7 +35,7 @@
     {% else %}
       <p>Không có công việc nào đã hoàn thành.</p>
     {% endif %}
-    <a href="{% url 'incomplete_tasks' %}">← Xem công việc chưa hoàn thành</a>
+    <a href="{% url 'incomplete_tasks' %}">Xem công việc chưa hoàn thành</a>
   </div>
 </body>
 </html>

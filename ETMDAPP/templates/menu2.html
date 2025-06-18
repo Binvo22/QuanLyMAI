@@ -1,0 +1,20 @@
+<nav class="top-navbar">
+    <div class="nav-logo">
+        <a href="{% url 'empdashboard' %}">
+            <img src="/static/IMAGES/mono.jpg" alt="Logo">
+        </a>
+        <span class="logo-name">M.A.I</span>
+    </div>
+    <ul class="nav-links">
+        <li><a href="{% url 'employee_dashboard' %}"><i class="fa fa-chart-line"></i> Tiến độ công việc</a></li>
+        <li><a href="{% url 'completed_tasks' %}"><i class="fa fa-check-circle"></i> Hoàn thành</a></li>
+        <li><a href="{% url 'incomplete_tasks' %}"><i class="fa fa-tasks"></i> Chưa hoàn thành</a></li>
+        <li><a href="{% url 'checkin' %}"><i class="fa fa-calendar-check"></i> Chấm công</a></li>
+        <li><a href="{% url 'employee_profile' %}"><i class="fa fa-user"></i> Hồ sơ</a></li>
+    </ul>
+    <div class="nav-profile">
+        <span class="name">{{ request.session.employee_name }}</span>
+        <span class="email">{{ request.session.employee_email }}</span>
+        <a href="{% url 'logout' %}" class="logout-btn" title="Đăng xuất"><i class="fas fa-sign-out-alt"></i></a>
+    </div>
+</nav>

@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600&display=swap');
+
+body {
+    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+    margin: 0;
+    padding: 0;
+    color: #222;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 900px;
+    margin: 30px auto 0 auto;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(55,157,148,0.13);
+    padding: 36px 28px 28px 28px;
+}
+
+h1 {
+    text-align: center;
+    color: #249688;
+    margin-bottom: 30px;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    font-weight: 700;
+    text-shadow: 0 2px 8px rgba(36,150,136,0.10);
+    margin: -20px auto 0 auto;
+}
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: #f8fafc;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(55,157,148,0.07);
+    margin: 30px auto 0 auto;
+}
+
+th, td {
+    padding: 14px 18px;
+    text-align: center;
+    border-bottom: 1px solid #e0eafc;
+    font-size: 1rem;
+}
+
+th {
+    background-color: #e0eafc;
+    color: #249688;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #fff;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #f8fafc;
+}
+
+tbody tr:hover {
+    background-color: #e0eafc;
+    color: #249688;
+    cursor: default;
+}
+
+.no-data {
+    text-align: center;
+    padding: 20px;
+    font-size: 1.1rem;
+    color: #888;
+    font-weight: 600;
+}
+
+@media (max-width: 700px) {
+    .container {
+        padding: 16px 4px 12px 4px;
+    }
+    th, td {
+        padding: 8px 6px;
+        font-size: 0.95rem;
+    }
+    h1 {
+        font-size: 1.2rem;
+    }
+}

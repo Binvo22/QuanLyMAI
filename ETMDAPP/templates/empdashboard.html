@@ -4,172 +4,39 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bảng điều khiển Quản lý Công việc</title>
-    <link rel="stylesheet" href="/static/css/EMPDashboard.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
-    />
-    <link
-      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <style>
-        .box {
-            flex: 1 1 250px;
-            max-width: 250px;
-            padding: 30px;
-            border-radius: 10px;
-            margin: 15px 10px;
-            text-align: center;
-            color: #000;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        .pink {
-            background-color: #F9D5E5;
-        }
-
-        .orange {
-            background-color: #FCE5C7;
-        }
-
-        .green {
-            background-color: #CFFFE5;
-        }
-
-        .blue {
-            background-color: #D6E8FF;
-        }
-
-        .color-box {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: nowrap; 
-            gap: 15px;
-        }
-
-        .box p {
-            margin: 10px 0 5px;
-            font-size: 1.0rem;
-        }
-
-        .box h3 {
-            margin: 0;
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-
-        .dashboard h2 {
-            margin: 30px 0 15px;
-            font-weight: 700;
-            font-size: 2.4rem;
-            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        }
-    </style>
+    <title>Bảng điều khiển Nhân viên</title>
+    <link rel="stylesheet" href="/static/css/admindashboard.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
 </head>
 <body>
-
-<section>
-    <div class="sidebar close">
-        <div class="logo">
-            <img
-              class="logo-name"
-              src="/static/IMAGES/mono.jpg"
-              style="margin:20px; height:40px; border-radius:20px"
-            />
-        </div>
-
-        <ul class="nav-list">
-            <li>
-                <div class="icon-link">
-                    <a href="#">
-                        <i class="fa-solid fa-list-check"></i>
-                        <span class="link-name">Công việc</span>
-                    </a>
-                    <i class="fas fa-caret-down arrow"></i>
+    {% include 'menu2.html' %}
+    <div class="main-content">
+        <div class="dashboard">
+            <h2 class="heading">Bảng điều khiển Nhân viên</h2>
+            <div class="color-box">
+                <div class="box pink">
+                    <i class="fa fa-tasks"></i>
+                    <p>Tổng công việc</p>
+                    <h3>{{ total_tasks }}</h3>
                 </div>
-                <ul class="sub-menu">
-                    <li><a href="{% url 'employee_dashboard' %}">Tiến độ công việc</a></li>
-                    <li><a href="{% url 'completed_tasks' %}">Công việc hoàn thành</a></li>
-                    <li><a href="{% url 'incomplete_tasks' %}">Công việc chưa hoàn thành</a></li>
-                    <li><a href="{% url 'checkin' %}">Chấm công</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="employee_profile">
-                    <i class="fa fa-gear"></i>
-                    <span class="link-name">Cài đặt</span>
-                </a>
-            </li>
-            <li>
-                <div class="profile-details">
-                    <div class="profile-content"></div>
-                    <div class="name-job">
-                        <div class="name">{{ request.session.employee_name }}</div>
-                        <div class="job">{{ request.session.employee_email }}</div>
-                    </div>
-
-                    <a href="{% url 'logout' %}"><i class="fas fa-right-to-bracket logout-icon"></i></a>
+                <div class="box orange">
+                    <i class="fa fa-play-circle"></i>
+                    <p>Vừa bắt đầu</p>
+                    <h3>{{ just_started_tasks }}</h3>
                 </div>
-            </li>
-        </ul>
-    </div>
-
-    <div class="home-section">
-        <div class="home-content">
-            <i class="fas fa-bars"></i>
-            <span class="text">Bảng điều khiển</span>
-        </div>
-    </div>
-
-    <div class="dashboard">
-        
-        <h2 class="heading">Bảng điều khiển</h2>
-        <div class="color-box">
-            <div class="box pink">
-                <p><i class="fa fa-building-o" aria-hidden="true"></i></p>
-                <p>Tổng công việc</p>
-                <h3>{{ total_tasks }}</h3>
-            </div>
-            <div class="box orange">
-                <p><i class="fa fa-play-circle" aria-hidden="true"></i></p>
-                <p>Vừa bắt đầu</p>
-                <h3>{{ just_started_tasks }}</h3>
-            </div>
-            <div class="box green">
-                <p><i class="fa fa-area-chart" aria-hidden="true"></i></p>
-                <p>Đang tiến hành</p>
-                <h3>{{ in_progress_tasks }}</h3>
-            </div>
-            <div class="box blue">
-                <p><i class="fa fa-check-circle" aria-hidden="true"></i></p>
-                <p>Hoàn thành</p>
-                <h3>{{ completed_tasks }}</h3>
+                <div class="box green">
+                    <i class="fa fa-area-chart"></i>
+                    <p>Đang tiến hành</p>
+                    <h3>{{ in_progress_tasks }}</h3>
+                </div>
+                <div class="box blue">
+                    <i class="fa fa-check-circle"></i>
+                    <p>Hoàn thành</p>
+                    <h3>{{ completed_tasks }}</h3>
+                </div>
             </div>
         </div>
     </div>
-</section>
-
-<script>
-    let btn = document.querySelector(".fa-bars");
-    let sidebar = document.querySelector(".sidebar");
-    btn.addEventListener("click", () => {
-        sidebar.classList.toggle("close");
-    });
-
-    let arrows = document.querySelectorAll(".arrow");
-    for (let i = 0; i < arrows.length; i++) {
-        arrows[i].addEventListener("click", (e) => {
-            let arrowParent = e.target.parentElement.parentElement;
-            arrowParent.classList.toggle("show");
-        });
-    }
-</script>
-
 </body>
 </html>

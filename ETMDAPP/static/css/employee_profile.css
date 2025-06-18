@@ -1,7 +1,13 @@
+/* employee_profile.css */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #379d94, #1f6354);
+    background: transparent !important;
     margin: 0;
+    padding: 0;
+}
+
+.profile-page {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
     padding: 40px 20px;
     color: #2c3e50;
     min-height: 100vh;
@@ -11,16 +17,15 @@ body {
     justify-content: flex-start;
 }
 
-h1 {
-    color: #f1f1f1;
+.profile-page h1 {
+    color: #3bb7a7;
     margin-bottom: 30px;
     text-align: center;
     font-weight: 700;
     font-size: 2.8rem;
-    text-shadow: 1px 1px 6px rgba(0,0,0,0.3);
 }
 
-img {
+.profile-page img {
     display: block;
     margin: 0 auto 30px auto;
     border-radius: 15px;
@@ -30,11 +35,11 @@ img {
     transition: transform 0.3s ease;
 }
 
-img:hover {
+.profile-page img:hover {
     transform: scale(1.05);
 }
 
-ul {
+.profile-page ul {
     max-width: 650px;
     width: 100%;
     margin: 0 auto;
@@ -46,7 +51,7 @@ ul {
     overflow: hidden;
 }
 
-ul li {
+.profile-page ul li {
     padding: 18px 30px;
     border-bottom: 1px solid #eee;
     font-size: 1.2rem;
@@ -55,22 +60,22 @@ ul li {
     transition: background-color 0.25s ease;
 }
 
-ul li:hover {
+.profile-page ul li:hover {
     background-color: #f7f9fa;
 }
 
-ul li strong {
+.profile-page ul li strong {
     width: 160px;
     display: inline-block;
     color: #444;
     font-weight: 600;
 }
 
-ul li:last-child {
+.profile-page ul li:last-child {
     border-bottom: none;
 }
 
-a {
+.profile-page a {
     display: inline-block;
     margin-top: 40px;
     padding: 14px 40px;
@@ -80,13 +85,13 @@ a {
     font-size: 1.2rem;
     border-radius: 30px;
     text-decoration: none;
-    box-shadow: 0 6px 15px  rgb(40, 114, 108);
+    box-shadow: 0 6px 15px rgb(40, 114, 108);
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
     text-align: center;
     max-width: 200px;
 }
 
-a:hover {
+.profile-page a:hover {
     background-color: rgb(36, 100, 95);
     text-decoration: none;
 }

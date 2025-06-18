@@ -4,11 +4,13 @@
 <head>
     <title>Công việc chưa hoàn thành</title>
     <link rel="stylesheet" href="{% static 'css/incomplete_tasks.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/menu.css">
 </head>
 <body>
+{% include 'menu2.html' %}
 <div class="container">
     <h1>Công việc chưa hoàn thành của bạn</h1>
-
     {% if incomplete_tasks %}
         {% for assignment in incomplete_tasks %}
             <div class="task-card">
@@ -24,8 +26,6 @@
     {% else %}
         <p class="complete-message">🎉 Chúc mừng! Bạn đã hoàn thành tất cả các công việc!</p>
     {% endif %}
-
-    <a href="{% url 'empdashboard' %}" class="back-btn">← Quay về Dashboard</a>
 </div>
 </body>
 </html>

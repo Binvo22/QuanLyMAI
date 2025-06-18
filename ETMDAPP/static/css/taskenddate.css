@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600&display=swap');
+
+body {
+    color: #343a40;
+    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+    padding-top: 40px;
+    padding-bottom: 40px;
+    margin: 0;
+}
+
+.container {
+    max-width: 900px;
+    background-color: #f8f9fa;
+    border-radius: 16px;
+    padding: 35px 40px;
+    box-shadow: 0 8px 24px rgba(55,157,148,0.13);
+    margin: 30px auto;
+}
+
+.back-link {
+    color: #249688;
+    font-weight: 600;
+    text-decoration: none;
+    margin-bottom: 25px;
+    display: inline-block;
+    transition: color 0.3s ease;
+    font-size: 1.1rem;
+}
+.back-link:hover {
+    color: #205d58;
+    text-decoration: underline;
+}
+
+h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #249688;
+    letter-spacing: 1px;
+}
+
+.task-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.task-item {
+    background: #e9f0fe;
+    border-radius: 12px;
+    padding: 20px 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0, 123, 255, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeInUp 0.5s ease forwards;
+    opacity: 0;
+    display: flex;
+    align-items: center;
+}
+
+.task-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 123, 255, 0.25);
+}
+
+.task-icon {
+    font-size: 38px;
+    color: #249688;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.task-content h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: #212529;
+}
+
+.task-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #343a40;
+    margin-bottom: 8px;
+}
+
+.end-date {
+    font-size: 1rem;
+    color: #495057;
+    font-weight: 500;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.task-item:nth-child(1) { animation-delay: 0.1s; }
+.task-item:nth-child(2) { animation-delay: 0.2s; }
+.task-item:nth-child(3) { animation-delay: 0.3s; }
+.task-item:nth-child(4) { animation-delay: 0.4s; }
+.task-item:nth-child(5) { animation-delay: 0.5s; }
+
+.text-muted {
+    color: #888 !important;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 16px 6px;
+    }
+    h1 {
+        font-size: 1.3rem;
+    }
+    .task-item {
+        padding: 12px 6px;
+        font-size: 0.95rem;
+    }
+    .task-icon {
+        font-size: 28px;
+        margin-right: 8px;
+    }
+}
